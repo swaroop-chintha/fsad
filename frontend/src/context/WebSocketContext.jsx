@@ -8,7 +8,7 @@ export const WebSocketProvider = ({ children }) => {
     const [stompClient, setStompClient] = useState(null);
 
     useEffect(() => {
-        const socket = new SockJS('http://localhost:8080/ws');
+        const socket = new SockJS(`${import.meta.env.VITE_WS_URL}/ws`);
         const client = Stomp.over(socket);
 
         client.connect({}, () => {

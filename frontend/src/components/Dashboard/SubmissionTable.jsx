@@ -61,7 +61,7 @@ const SubmissionRow = ({ submission, onGrade }) => {
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {submission.fileUrl ? (
                     <a
-                        href={`http://localhost:8080/api/submissions/download/${submission.fileUrl}`}
+                        href={`${import.meta.env.VITE_API_URL || ''}/api/submissions/download/${submission.fileUrl}`}
                         className="flex items-center text-indigo-600 hover:text-indigo-900"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -75,10 +75,10 @@ const SubmissionRow = ({ submission, onGrade }) => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${submission.status === 'GRADED'
-                        ? 'bg-green-100 text-green-800'
-                        : submission.status === 'LATE'
-                            ? 'bg-red-100 text-red-800'
-                            : 'bg-yellow-100 text-yellow-800'
+                    ? 'bg-green-100 text-green-800'
+                    : submission.status === 'LATE'
+                        ? 'bg-red-100 text-red-800'
+                        : 'bg-yellow-100 text-yellow-800'
                     }`}>
                     {submission.status}
                 </span>
