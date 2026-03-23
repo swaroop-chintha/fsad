@@ -9,15 +9,11 @@ const StudentLayout = () => {
         <div className="min-h-screen bg-gray-50 font-sans relative">
             {/* Background Image with Transparency Overlay */}
             <div
-                className="fixed inset-0 z-0 pointer-events-none opacity-20"
+                className="fixed inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
                 style={{
-                    backgroundImage: `url(${studentBg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
+                    backgroundImage: `url(${studentBg})`
                 }}
             />
-            <div className="fixed inset-0 z-0 pointer-events-none bg-white/40" />
 
             <div className="relative z-10">
                 <Sidebar />

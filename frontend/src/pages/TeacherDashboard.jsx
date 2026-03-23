@@ -214,15 +214,11 @@ const TeacherDashboard = () => {
             <div className="flex-1 ml-64 overflow-y-auto relative">
                 {/* Background Image with Transparency Overlay */}
                 <div
-                    className="absolute inset-0 z-0 pointer-events-none opacity-20"
+                    className="absolute inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
                     style={{
-                        backgroundImage: `url(${teacherBg})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
+                        backgroundImage: `url(${teacherBg})`
                     }}
                 />
-                <div className="absolute inset-0 z-0 pointer-events-none bg-white/40" />
 
                 {/* Content Container */}
                 <div className="relative z-10 p-8">
