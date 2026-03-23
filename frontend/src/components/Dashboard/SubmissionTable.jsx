@@ -61,7 +61,7 @@ const SubmissionRow = ({ submission, onGrade }) => {
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {submission.fileUrl ? (
                     <a
-                        href={`${import.meta.env.VITE_API_URL || ''}/api/submissions/download/${submission.fileUrl}`}
+                        href={`${(import.meta.env.VITE_API_URL || '').endsWith('/api') ? (import.meta.env.VITE_API_URL || '').slice(0, -4) : (import.meta.env.VITE_API_URL || '')}/api/submissions/download/${submission.fileUrl}`}
                         className="flex items-center text-indigo-600 hover:text-indigo-900"
                         target="_blank"
                         rel="noopener noreferrer"
