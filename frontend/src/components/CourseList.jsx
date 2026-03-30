@@ -1,12 +1,20 @@
 import React from 'react';
-import { PlayCircle, Award, Clock } from 'lucide-react';
+import { PlayCircle, Award, Clock, Inbox } from 'lucide-react';
 
 const CourseList = ({ courses, onSelectCourse }) => {
     // For demo purposes, assume the first course is "active"
     const activeCourse = courses.length > 0 ? courses[0] : null;
     const otherCourses = courses.length > 1 ? courses.slice(1) : [];
 
-    if (!activeCourse) return <div className="text-gray-500">No courses enrolled yet.</div>;
+    if (!activeCourse) return (
+        <div className="flex flex-col items-center justify-center p-12 bg-white/60 backdrop-blur-md rounded-[2.5rem] border border-white text-center shadow-lg shadow-indigo-500/5">
+            <div className="w-24 h-24 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-full flex items-center justify-center text-indigo-400 mb-6 shadow-inner ring-4 ring-white">
+                <Inbox size={48} strokeWidth={1.5} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-800 mb-2 tracking-tight">No Courses Yet</h3>
+            <p className="text-slate-500 max-w-sm font-medium">It looks like you aren't enrolled in any courses right now. Check back later or contact your teacher!</p>
+        </div>
+    );
 
     return (
         <div className="space-y-8">

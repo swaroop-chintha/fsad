@@ -6,10 +6,10 @@ import Sidebar from '../components/Dashboard/Sidebar';
 import StatsCards from '../components/Dashboard/StatsCards';
 import AssignmentList from '../components/Dashboard/AssignmentList';
 import SubmissionTable from '../components/Dashboard/SubmissionTable';
-import { Plus, X, Award, Search, User, Lock, Mail, HelpCircle, Settings as SettingsIcon } from 'lucide-react';
-import teacherBg from '../assets/teacher_bg.png';
+import { Plus, X, Award, Search, User, Lock, Mail, HelpCircle, Settings as SettingsIcon, BookOpen, FileText } from 'lucide-react';
 import UpcomingEvents from '../components/Dashboard/UpcomingEvents';
 import CourseMaterials from '../components/Dashboard/CourseMaterials';
+import CalendarWidget from '../components/CalendarWidget';
 
 import Toast from '../components/Toast';
 
@@ -211,14 +211,9 @@ const TeacherDashboard = () => {
             {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
             <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} logout={logout} />
 
-            <div className="flex-1 ml-64 overflow-y-auto relative">
-                {/* Background Image with Transparency Overlay */}
-                <div
-                    className="absolute inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
-                    style={{
-                        backgroundImage: `url(${teacherBg})`
-                    }}
-                />
+            <div className="flex-1 ml-64 overflow-y-auto relative animate-fade-in">
+                {/* Modern Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 -z-10 rounded-l-[3rem]"></div>
 
                 {/* Content Container */}
                 <div className="relative z-10 p-8">
@@ -255,23 +250,41 @@ const TeacherDashboard = () => {
                         <>
                             <StatsCards stats={stats} />
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
-                                    <p className="text-gray-500 text-sm">Real-time updates will appear here...</p>
-                                    {/* Placeholder for activity log if needed */}
-                                </div>
-                                <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Stats</h3>
-                                    <div className="space-y-4">
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-gray-600">Active Courses</span>
-                                            <span className="font-medium text-gray-900">{courses.length}</span>
-                                        </div>
-                                        <div className="w-full bg-gray-100 rounded-full h-2">
-                                            <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '70%' }}></div>
+                            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 relative z-10">
+                                <div className="xl:col-span-2 space-y-6">
+                                    <div className="bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 border border-white shadow-lg shadow-indigo-500/5">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-6">Recent Activity Highlights</h3>
+                                        <div className="space-y-4">
+                                            {/* Dynamic quick stats to replace fake activity text */}
+                                            <div className="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-white">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600">
+                                                        <BookOpen size={20} />
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-bold text-gray-800">Active Courses Managed</p>
+                                                        <p className="text-sm text-gray-500">Currently facilitating {courses.length} courses</p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-2xl font-black text-indigo-600">{courses.length}</div>
+                                            </div>
+                                            <div className="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-white">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+                                                        <FileText size={20} />
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-bold text-gray-800">Total Assignments Posted</p>
+                                                        <p className="text-sm text-gray-500">Across all your courses</p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-2xl font-black text-purple-600">{stats.totalAssignments}</div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="xl:col-span-1">
+                                    <CalendarWidget events={assignments} />
                                 </div>
                             </div>
                         </>

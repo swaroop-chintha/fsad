@@ -7,7 +7,9 @@ const StatCard = ({ icon: Icon, label, value, subLabel, color, progress }) => {
     const offset = circumference - (progress / 100) * circumference;
 
     return (
-        <div className={`p-6 rounded-3xl ${color} flex items-center justify-between`}>
+        <div className={`p-6 rounded-[2rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default group`}>
+            {/* Soft background glow */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full mix-blend-overlay filter blur-2xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform duration-500"></div>
             <div>
                 <div className="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center mb-3 text-white">
                     <Icon size={20} />

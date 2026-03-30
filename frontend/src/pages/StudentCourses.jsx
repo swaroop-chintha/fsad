@@ -7,30 +7,69 @@ const StudentCourses = () => {
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [filter, setFilter] = useState('All');
+    const [isLoading, setIsLoading] = useState(true);
+
+    const fetchCourses = async () => {
+        setIsLoading(true);
+        try {
+            // Fetch courses
+            const res = await axios.get('/api/courses');
+            
+            // Fetch my submissions to sync State
+            let mySubmissions = [];
+            try {
+                const subRes = await axios.get('/api/submissions/my-submissions');
+                mySubmissions = subRes.data || [];
+            } catch (err) {
+                console.warn("Could not fetch submissions overlay", err);
+            }
+
+            // Bind assignments and matched submissions to each course
+            const coursesWithData = await Promise.all(res.data.map(async (course) => {
+                try {
+                    const assignRes = await axios.get(`/api/assignments/course/${course.id}`);
+                    const courseAssignments = assignRes.data || [];
+                    
+                    const courseSubmissions = mySubmissions.filter(sub => 
+                        courseAssignments.some(assign => assign.id === sub.assignment.id)
+                    );
+
+                    return { 
+                        ...course, 
+                        taskCount: courseAssignments.length,
+                        assignments: courseAssignments,
+                        submissions: courseSubmissions
+                    };
+                } catch {
+                    return { ...course, taskCount: 0, assignments: [], submissions: [] };
+                }
+            }));
+            
+            setCourses(coursesWithData);
+            
+            // If a course is currently selected, update its reference to reflect new submissions
+            if (selectedCourse) {
+                const updatedCourse = coursesWithData.find(c => c.id === selectedCourse.id);
+                if (updatedCourse) setSelectedCourse(updatedCourse);
+            }
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     useEffect(() => {
         fetchCourses();
     }, []);
 
-    const fetchCourses = async () => {
-        try {
-            const res = await axios.get('/api/courses');
-            // Mocking some "active" vs "completed" logic if needed, 
-            // for now just bringing all.
-            // We'll also fetch assignments for each to show task count
-            const coursesWithData = await Promise.all(res.data.map(async (course) => {
-                try {
-                    const assignRes = await axios.get(`/api/assignments/course/${course.id}`);
-                    return { ...course, taskCount: assignRes.data.length };
-                } catch {
-                    return { ...course, taskCount: 0 };
-                }
-            }));
-            setCourses(coursesWithData);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    // Simple client-side filtering mock
+    const filteredCourses = courses.filter(c => {
+        if (filter === 'All') return true;
+        if (filter === 'Active') return c.taskCount > 0;
+        if (filter === 'Completed') return c.taskCount === 0;
+        return true;
+    });
 
     return (
         <div className="space-y-6">
@@ -59,49 +98,45 @@ const StudentCourses = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {courses.map(course => (
-                    <div
-                        key={course.id}
-                        onClick={() => setSelectedCourse(course)}
-                        className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all cursor-pointer group"
-                    >
-                        <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
-                            <Award size={24} />
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2">{course.title}</h3>
-                        <p className="text-gray-500 text-sm mb-4 line-clamp-2">{course.description}</p>
+            {isLoading ? (
+                <div className="flex justify-center items-center py-20">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredCourses.map(course => (
+                        <div
+                            key={course.id}
+                            onClick={() => setSelectedCourse(course)}
+                            className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all cursor-pointer group"
+                        >
+                            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
+                                <Award size={24} />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-800 mb-2">{course.title}</h3>
+                            <p className="text-gray-500 text-sm mb-4 line-clamp-2">{course.description}</p>
 
-                        <div className="flex items-center justify-between text-xs text-gray-400 font-medium">
-                            <span className="bg-gray-50 px-2 py-1 rounded-md">{course.taskCount || 0} Tasks</span>
-                            <span>In Progress</span>
+                            <div className="flex items-center justify-between text-xs text-gray-400 font-medium">
+                                <span className="bg-indigo-50 text-indigo-600 px-2 py-1 rounded-md">{course.taskCount || 0} Tasks</span>
+                                <span>{course.taskCount > 0 ? 'In Progress' : 'Browse'}</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                    {filteredCourses.length === 0 && (
+                        <div className="col-span-full py-10 text-center text-gray-500">
+                            No courses found matching this view.
+                        </div>
+                    )}
+                </div>
+            )}
 
             {selectedCourse && (
                 <CourseAssignmentsView
-                    course={{ ...selectedCourse, assignments: [], submissions: [] }} // Re-fetch details inside view or rely on parent? 
-                    // Note: CourseAssignmentsView expects populated assignments. 
-                    // Let's rely on the View logic or fetch it here.
-                    // Actually CourseAssignmentsView as written before displays passed props, so we should allow it to fetch/refresh or pass correct data.
-                    // For simplicity, let's just close it or update CourseAssignmentsView to be smarter.
-                    // Actually, passing empty arrays might break it. 
-                    // Let's update logic to fetch if missing.
-                    // For this iteration, let's pass dummy and handle it.
-                    // Better: Fetch details before opening.
+                    course={selectedCourse} 
                     onClose={() => setSelectedCourse(null)}
                     onRefresh={fetchCourses}
                 />
             )}
-
-            {/* Quick fix: CourseAssignmentsView needs assignments prop. We didn't fetch them fully here.
-                Let's simplify and assume the user clicks to navigate or we fetch on click.
-                For this file, I'll assume we pass basic data and the view handles it or we'll update view later.
-                Wait, I reused CourseAssignmentsView. It expects `course.assignments`.
-                I will update this component to fetch assignments when a course is selected.
-            */}
         </div>
     );
 };

@@ -108,7 +108,9 @@ const StudentDashboard = () => {
     };
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 animate-fade-in relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 -z-10 rounded-[3rem]"></div>
+            
             {selectedCourse && (
                 <CourseAssignmentsView
                     course={selectedCourse}
@@ -118,14 +120,14 @@ const StudentDashboard = () => {
             )}
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-2">
                 <StatCard
                     icon={BookOpen}
                     label="Lessons"
                     value={stats.lessons.completed.toString()}
                     subLabel={`of ${stats.lessons.total} completed`}
                     progress={stats.lessons.progress}
-                    color="bg-orange-100 text-orange-600"
+                    color="bg-gradient-to-br from-orange-400 to-orange-500 text-white shadow-orange-500/20"
                 />
                 <StatCard
                     icon={CheckSquare}
@@ -133,7 +135,7 @@ const StudentDashboard = () => {
                     value={stats.assignments.completed.toString()}
                     subLabel={`of ${stats.assignments.total} completed`}
                     progress={stats.assignments.progress}
-                    color="bg-red-100 text-red-600"
+                    color="bg-gradient-to-br from-rose-400 to-rose-500 text-white shadow-rose-500/20"
                 />
                 <StatCard
                     icon={FileText}
@@ -141,18 +143,21 @@ const StudentDashboard = () => {
                     value={stats.tests.completed.toString()}
                     subLabel={`of ${stats.tests.total} completed`}
                     progress={stats.tests.progress}
-                    color="bg-green-100 text-green-600"
+                    color="bg-gradient-to-br from-emerald-400 to-emerald-500 text-white shadow-emerald-500/20"
                 />
             </div>
 
             {/* Main Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column (Courses) */}
-                <div className="lg:col-span-2 space-y-8">
+                <div className="lg:col-span-2 space-y-8 relative z-10">
                     {isLoading ? (
-                        <div className="animate-pulse space-y-4">
-                            <div className="h-48 bg-gray-200 rounded-3xl"></div>
-                            <div className="h-20 bg-gray-200 rounded-2xl"></div>
+                        <div className="animate-pulse space-y-6">
+                            <div className="h-48 bg-white/60 backdrop-blur-md rounded-[2.5rem] border border-white"></div>
+                            <div className="space-y-4">
+                                <div className="h-24 bg-white/60 backdrop-blur-md rounded-2xl border border-white"></div>
+                                <div className="h-24 bg-white/60 backdrop-blur-md rounded-2xl border border-white"></div>
+                            </div>
                         </div>
                     ) : (
                         <CourseList courses={courses} onSelectCourse={handleSelectCourse} />
