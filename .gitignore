@@ -1,18 +1,32 @@
-backend/uploads/
-*.png
-*.jpg
-*.jpeg
-*.svg
+# OS Files
 .DS_Store
+Thumbs.db
+
+# Environment Files
+.env
+.env.*
+
+# Build and Dependency Directories
+node_modules/
+build/
+dist/
+target/
+
+# IDE and Project Files
+.idea/
+.vscode/
+.settings/
 .project
 .classpath
 .factorypath
-.settings/
-.idea/
-.vscode/
-node_modules/
-dist/
-build/
-target/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Application Specific
+backend/uploads/
 .gemini/
 .antigravity/
