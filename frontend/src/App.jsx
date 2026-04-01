@@ -8,6 +8,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import { WebSocketProvider } from './context/WebSocketContext';
 import { ToastProvider } from './context/ToastContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 import StudentLayout from './layouts/StudentLayout';
 import StudentCourses from './pages/StudentCourses';
@@ -17,6 +18,7 @@ import StudentSettings from './pages/StudentSettings';
 
 function App() {
   return (
+    <ThemeProvider>
     <ToastProvider>
       <AuthProvider>
         <WebSocketProvider>
@@ -45,6 +47,7 @@ function App() {
         </WebSocketProvider>
       </AuthProvider>
     </ToastProvider>
+    </ThemeProvider>
   );
 }
 

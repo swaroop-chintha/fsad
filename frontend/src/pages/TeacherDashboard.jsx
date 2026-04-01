@@ -26,6 +26,7 @@ const TeacherDashboard = () => {
     });
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
+    const [calendarEvents, setCalendarEvents] = useState([]);
     const [assignments, setAssignments] = useState([]);
     const [submissions, setSubmissions] = useState([]);
     const [showCreateAssignment, setShowCreateAssignment] = useState(false);
@@ -42,7 +43,22 @@ const TeacherDashboard = () => {
     useEffect(() => {
         fetchStats();
         fetchCourses();
+        fetchCalendarEvents();
     }, []);
+
+    const fetchCalendarEvents = async () => {
+        try {
+            const res = await axios.get('/api/calendar-events');
+            setCalendarEvents(res.data);
+        } catch (err) {
+            console.error("Failed to fetch calendar events", err);
+        }
+    };
+
+    const handleAddCalendarEvent = async (formData) => {
+        await axios.post('/api/calendar-events', formData);
+        fetchCalendarEvents();
+    };
 
     // WebSocket Listeners
     useEffect(() => {
@@ -284,7 +300,12 @@ const TeacherDashboard = () => {
                                     </div>
                                 </div>
                                 <div className="xl:col-span-1">
-                                    <CalendarWidget events={assignments} />
+                                    <CalendarWidget
+                                        events={assignments}
+                                        calendarEvents={calendarEvents}
+                                        onAddEvent={handleAddCalendarEvent}
+                                        isTeacher={true}
+                                    />
                                 </div>
                             </div>
                         </>

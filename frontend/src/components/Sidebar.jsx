@@ -11,21 +11,21 @@ const Sidebar = () => {
 
     const navItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/student' },
-        { icon: BookOpen, label: 'Courses', path: '/student/courses' }, // Placeholder paths
+        { icon: BookOpen, label: 'Courses', path: '/student/courses' },
         { icon: FileText, label: 'Chapter', path: '/student/chapters' },
         { icon: HelpCircle, label: 'Help', path: '/student/help' },
         { icon: Settings, label: 'Settings', path: '/student/settings' },
     ];
 
     return (
-        <div className="w-64 bg-white h-screen fixed left-0 top-0 border-r border-gray-100 flex flex-col justify-between py-6 px-4">
+        <div className="w-64 bg-white dark:bg-gray-800 h-screen fixed left-0 top-0 border-r border-gray-100 dark:border-gray-700 flex flex-col justify-between py-6 px-4 transition-colors duration-300">
             <div>
                 {/* Logo */}
                 <div className="flex items-center gap-2 px-4 mb-10">
                     <div className="w-8 h-8 bg-indigo-600 rounded-lg transform rotate-12 flex items-center justify-center">
                         <div className="w-4 h-4 bg-white rounded-full opacity-50"></div>
                     </div>
-                    <span className="text-2xl font-bold text-gray-800">EduSub.</span>
+                    <span className="text-2xl font-bold text-gray-800 dark:text-white">EduSub.</span>
                 </div>
 
                 {/* Nav Items */}
@@ -35,8 +35,8 @@ const Sidebar = () => {
                             key={item.label}
                             to={item.path}
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive(item.path)
-                                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
-                                : 'text-gray-500 hover:bg-indigo-50 hover:text-indigo-600'
+                                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40'
+                                : 'text-gray-500 dark:text-gray-400 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:text-indigo-600 dark:hover:text-indigo-400'
                                 }`}
                         >
                             <item.icon size={20} />
@@ -48,13 +48,13 @@ const Sidebar = () => {
 
             {/* Bottom Items */}
             <div className="space-y-1">
-                <button className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-indigo-50 hover:text-indigo-600 rounded-xl transition-all duration-200">
+                <button className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-xl transition-all duration-200">
                     <MessageSquare size={20} />
                     <span className="font-medium">FAQ</span>
                 </button>
                 <button
                     onClick={logout}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-200"
+                    className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 rounded-xl transition-all duration-200"
                 >
                     <LogOut size={20} />
                     <span className="font-medium">Logout</span>

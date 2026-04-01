@@ -44,6 +44,39 @@ const SubmissionRow = ({ submission, onGrade }) => {
         setIsEditing(false);
     };
 
+    const handleDownload = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const apiUrl = import.meta.env.VITE_API_URL || '';
+            const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+            const url = `${baseUrl}/api/submissions/download/${submission.fileUrl}`;
+            
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Download failed');
+            }
+            
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = downloadUrl;
+            a.download = submission.fileUrl;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(downloadUrl);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading file:', error);
+            alert('Failed to download file');
+        }
+    };
+
     return (
         <tr className="hover:bg-gray-50">
             <td className="px-6 py-4 whitespace-nowrap">
@@ -60,15 +93,13 @@ const SubmissionRow = ({ submission, onGrade }) => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {submission.fileUrl ? (
-                    <a
-                        href={`${(import.meta.env.VITE_API_URL || '').endsWith('/api') ? (import.meta.env.VITE_API_URL || '').slice(0, -4) : (import.meta.env.VITE_API_URL || '')}/api/submissions/download/${submission.fileUrl}`}
-                        className="flex items-center text-indigo-600 hover:text-indigo-900"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={handleDownload}
+                        className="flex items-center text-indigo-600 hover:text-indigo-900 focus:outline-none bg-transparent border-0 cursor-pointer"
                     >
                         <Download className="h-4 w-4 mr-1" />
                         Download
-                    </a>
+                    </button>
                 ) : (
                     <span className="text-gray-400">No file</span>
                 )}

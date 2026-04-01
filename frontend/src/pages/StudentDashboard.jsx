@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext'; // Keeping auth context
 import { BookOpen, CheckSquare, FileText, Bell, Calendar as CalendarIcon } from 'lucide-react';
 
 // Components
-// Components
 import StatCard from '../components/StatCard';
 import CalendarWidget from '../components/CalendarWidget';
 import CourseList from '../components/CourseList';
@@ -18,6 +17,7 @@ const StudentDashboard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [allUpcomingEvents, setAllUpcomingEvents] = useState([]);
+    const [calendarEvents, setCalendarEvents] = useState([]);
     const [stats, setStats] = useState({
         lessons: { total: 0, completed: 0, progress: 0 },
         assignments: { total: 0, completed: 0, progress: 0 },
@@ -26,7 +26,22 @@ const StudentDashboard = () => {
 
     useEffect(() => {
         fetchData();
+        fetchCalendarEvents();
     }, []);
+
+    const fetchCalendarEvents = async () => {
+        try {
+            const res = await axios.get('/api/calendar-events');
+            setCalendarEvents(res.data);
+        } catch (err) {
+            console.error("Failed to fetch calendar events", err);
+        }
+    };
+
+    const handleAddCalendarEvent = async (formData) => {
+        await axios.post('/api/calendar-events', formData);
+        fetchCalendarEvents();
+    };
 
     const fetchData = async () => {
         try {
@@ -109,7 +124,7 @@ const StudentDashboard = () => {
 
     return (
         <div className="space-y-8 animate-fade-in relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 -z-10 rounded-[3rem]"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-800/50 dark:via-gray-900 dark:to-gray-800/50 -z-10 rounded-[3rem]"></div>
             
             {selectedCourse && (
                 <CourseAssignmentsView
@@ -153,10 +168,10 @@ const StudentDashboard = () => {
                 <div className="lg:col-span-2 space-y-8 relative z-10">
                     {isLoading ? (
                         <div className="animate-pulse space-y-6">
-                            <div className="h-48 bg-white/60 backdrop-blur-md rounded-[2.5rem] border border-white"></div>
+                            <div className="h-48 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-[2.5rem] border border-white dark:border-gray-700"></div>
                             <div className="space-y-4">
-                                <div className="h-24 bg-white/60 backdrop-blur-md rounded-2xl border border-white"></div>
-                                <div className="h-24 bg-white/60 backdrop-blur-md rounded-2xl border border-white"></div>
+                                <div className="h-24 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-2xl border border-white dark:border-gray-700"></div>
+                                <div className="h-24 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-2xl border border-white dark:border-gray-700"></div>
                             </div>
                         </div>
                     ) : (
@@ -166,7 +181,12 @@ const StudentDashboard = () => {
 
                 {/* Right Column (Calendar & Upcoming) */}
                 <div className="space-y-8">
-                    <CalendarWidget />
+                    <CalendarWidget
+                        events={assignments}
+                        calendarEvents={calendarEvents}
+                        onAddEvent={handleAddCalendarEvent}
+                        isTeacher={false}
+                    />
 
                     {/* Upcoming List */}
                     <UpcomingEvents eventsProp={allUpcomingEvents} isTeacher={false} />

@@ -6,10 +6,10 @@ import studentBg from '../assets/student_bg.png';
 
 const StudentLayout = () => {
     return (
-        <div className="min-h-screen bg-gray-50 font-sans relative">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans relative transition-colors duration-300">
             {/* Background Image with Transparency Overlay */}
             <div
-                className="fixed inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
+                className="fixed inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40 dark:opacity-10"
                 style={{
                     backgroundImage: `url(${studentBg})`
                 }}

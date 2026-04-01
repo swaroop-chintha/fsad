@@ -49,9 +49,9 @@ const UpcomingEvents = ({ courseId, isTeacher, eventsProp }) => {
     };
 
     return (
-        <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm relative overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm relative overflow-hidden transition-colors duration-300">
             <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900 flex items-center">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center">
                     <Calendar className="mr-2 text-indigo-600 h-5 w-5" /> Upcoming
                 </h3>
                 {isTeacher && courseId && (
@@ -63,18 +63,18 @@ const UpcomingEvents = ({ courseId, isTeacher, eventsProp }) => {
 
             <div className="space-y-4">
                 {events.length === 0 ? (
-                    <p className="text-gray-500 text-sm">No upcoming events scheduled.</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">No upcoming events scheduled.</p>
                 ) : (
                     events.map(ev => {
                         const d = new Date(ev.eventDate);
                         return (
-                            <div key={ev.id} className="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-xl transition-colors border border-transparent hover:border-gray-100">
-                                <div className="bg-gray-50 rounded-xl p-2 text-center min-w-[60px]">
-                                    <div className="text-xl font-bold text-gray-900">{d.getDate()}</div>
-                                    <div className="text-xs text-gray-500 font-medium uppercase">{d.toLocaleString('default', { month: 'short' })}</div>
+                            <div key={ev.id} className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-600">
+                                <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-2 text-center min-w-[60px]">
+                                    <div className="text-xl font-bold text-gray-900 dark:text-white">{d.getDate()}</div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">{d.toLocaleString('default', { month: 'short' })}</div>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-gray-900">{ev.title}</h4>
+                                    <h4 className="font-semibold text-gray-900 dark:text-white">{ev.title}</h4>
                                     <div className="flex items-center text-sm mt-1">
                                         <div className={`w-2 h-2 rounded-full mr-2 ${ev.eventType === 'TEST' ? 'bg-red-500' : 'bg-green-500'}`}></div>
                                         <span className={ev.eventType === 'TEST' ? 'text-red-500' : 'text-green-500'}>{ev.eventType}</span>

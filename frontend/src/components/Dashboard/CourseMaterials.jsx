@@ -55,6 +55,37 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
         }
     };
 
+    const handleDownloadMaterial = async (url, title) => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Download failed');
+            }
+
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = downloadUrl;
+            // Extract filename from URL or use the material title
+            const fileName = url.substring(url.lastIndexOf('/') + 1) || title;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(downloadUrl);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading material:', error);
+            alert('Failed to download material');
+        }
+    };
+
     return (
         <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm mt-6">
             <div className="flex items-center mb-6">
@@ -89,18 +120,21 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
                                     <Book className="h-5 w-5" />
                                 </div>
                                 <div>
-                                    <a href={mat.fileUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-900 hover:text-indigo-600 text-sm transition-colors list-none underline-offset-2 hover:underline">
+                                    <button
+                                        onClick={() => handleDownloadMaterial(mat.fileUrl, mat.title)}
+                                        className="font-semibold text-gray-900 hover:text-indigo-600 text-sm transition-colors underline-offset-2 hover:underline bg-transparent border-0 cursor-pointer p-0"
+                                    >
                                         {mat.title}
-                                    </a>
+                                    </button>
                                     <div className="text-xs text-gray-400 mt-0.5">
                                         {new Date(mat.uploadedAt).toLocaleDateString()}
                                     </div>
                                 </div>
                             </div>
                             <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <a href={mat.fileUrl} download className="p-1.5 text-gray-500 hover:text-indigo-600 bg-white shadow-sm border rounded-md">
+                                <button onClick={() => handleDownloadMaterial(mat.fileUrl, mat.title)} className="p-1.5 text-gray-500 hover:text-indigo-600 bg-white shadow-sm border rounded-md cursor-pointer">
                                     <Download className="h-4 w-4" />
-                                </a>
+                                </button>
                                 {isTeacher && (
                                     <button onClick={() => handleDelete(mat.id)} className="p-1.5 text-gray-500 hover:text-red-600 bg-white shadow-sm border rounded-md">
                                         <Trash2 className="h-4 w-4" />
