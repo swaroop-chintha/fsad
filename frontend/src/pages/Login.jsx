@@ -34,13 +34,13 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row items-center justify-center p-4 relative overflow-hidden font-sans">
+        <div className="min-h-screen bg-slate-50 dark:bg-gray-900 flex flex-col md:flex-row items-center justify-center p-4 relative overflow-hidden font-sans transition-colors duration-300">
             {/* Background elements (grid, blobs) */}
-            <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+            <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
             
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute -bottom-10 left-1/2 w-96 h-96 bg-emerald-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '4s' }}></div>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-400/20 dark:bg-indigo-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute -bottom-10 left-1/2 w-96 h-96 bg-emerald-400/20 dark:bg-emerald-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '4s' }}></div>
 
             {/* Main Content Wrapper */}
             <div className="z-10 flex flex-col items-center w-full max-w-6xl md:flex-row relative">
@@ -50,37 +50,37 @@ const Login = () => {
                     <img
                         src={loginBg}
                         alt="Education 3D Illustration"
-                        className="w-full max-w-[600px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full max-w-[600px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out dark:brightness-90"
                     />
                 </div>
 
                 {/* Right side: Login Card */}
-                <div className="w-full max-w-md p-8 md:p-10 glass-card rounded-[2.5rem] z-10 relative flex flex-col items-center transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10">
+                <div className="w-full max-w-md p-8 md:p-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white dark:border-gray-700 rounded-[2.5rem] z-10 relative flex flex-col items-center transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10">
                     {/* Logo inside card */}
                     <div className="flex items-center space-x-3 mb-8 hover:scale-105 transition-transform cursor-default">
                         <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center rounded-2xl shadow-lg shadow-indigo-500/30">
                             <span className="text-white font-black text-3xl">E</span>
                         </div>
-                        <span className="text-3xl font-extrabold text-slate-800 tracking-tight">EduSub</span>
+                        <span className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">EduSub</span>
                     </div>
 
                     <div className="text-center mb-8 w-full">
-                        <h2 className="text-3xl font-bold text-slate-800 mb-2 tracking-tight">
+                        <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-2 tracking-tight">
                             Welcome Back!
                         </h2>
-                        <p className="text-slate-500 font-medium text-sm">Sign in to continue your learning journey</p>
+                        <p className="text-slate-500 dark:text-gray-400 font-medium text-sm">Sign in to continue your learning journey</p>
                     </div>
 
                     <form className="space-y-6 w-full" onSubmit={handleSubmit}>
                         <div className="space-y-4">
                             <div className="relative group">
-                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors duration-300">
+                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 dark:text-gray-500 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors duration-300">
                                     <Mail size={20} strokeWidth={2.5} />
                                 </div>
                                 <input
                                     type="email"
                                     required
-                                    className="block w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 bg-white/50 hover:bg-white text-slate-900 placeholder-slate-400 font-medium text-[15px] transition-all outline-none shadow-sm"
+                                    className="block w-full pl-12 pr-4 py-3.5 border border-slate-200 dark:border-gray-700 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 bg-white/50 dark:bg-gray-900/50 hover:bg-white dark:hover:bg-gray-900 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 font-medium text-[15px] transition-all outline-none shadow-sm"
                                     placeholder="Email address"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -89,13 +89,13 @@ const Login = () => {
                             </div>
                             
                             <div className="relative group">
-                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors duration-300">
+                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 dark:text-gray-500 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors duration-300">
                                     <Lock size={20} strokeWidth={2.5} />
                                 </div>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     required
-                                    className="block w-full pl-12 pr-12 py-3.5 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 bg-white/50 hover:bg-white text-slate-900 placeholder-slate-400 font-medium text-[15px] transition-all outline-none shadow-sm"
+                                    className="block w-full pl-12 pr-12 py-3.5 border border-slate-200 dark:border-gray-700 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 bg-white/50 dark:bg-gray-900/50 hover:bg-white dark:hover:bg-gray-900 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 font-medium text-[15px] transition-all outline-none shadow-sm"
                                     placeholder="Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -104,7 +104,7 @@ const Login = () => {
                                 <button 
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-indigo-600 focus:outline-none transition-colors duration-300"
+                                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 dark:text-gray-500 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none transition-colors duration-300"
                                 >
                                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                                 </button>
@@ -113,10 +113,10 @@ const Login = () => {
 
                         <div className="flex items-center justify-between pt-1">
                             <label className="flex items-center gap-2 cursor-pointer group">
-                                <input type="checkbox" className="rounded text-indigo-600 focus:ring-indigo-500 border-slate-300 bg-white/50" />
-                                <span className="text-sm font-medium text-slate-500 group-hover:text-slate-700 transition-colors">Remember me</span>
+                                <input type="checkbox" className="rounded text-indigo-600 focus:ring-indigo-500 border-slate-300 dark:border-gray-600 bg-white/50 dark:bg-gray-900/50" />
+                                <span className="text-sm font-medium text-slate-500 dark:text-gray-400 group-hover:text-slate-700 dark:group-hover:text-gray-200 transition-colors">Remember me</span>
                             </label>
-                            <a href="#" className="text-sm font-bold text-indigo-600 hover:text-indigo-500 hover:underline transition-all">
+                            <a href="#" className="text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:underline transition-all">
                                 Forgot password?
                             </a>
                         </div>
@@ -136,9 +136,9 @@ const Login = () => {
                             )}
                         </button>
 
-                        <div className="text-sm text-center mt-6 text-slate-500 font-medium">
+                        <div className="text-sm text-center mt-6 text-slate-500 dark:text-gray-400 font-medium">
                             Don't have an account?{" "}
-                            <Link to="/register" className="font-bold text-indigo-600 hover:text-indigo-500 hover:underline transition-all ml-1">
+                            <Link to="/register" className="font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:underline transition-all ml-1">
                                 Create an account
                             </Link>
                         </div>

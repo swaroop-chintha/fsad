@@ -2,15 +2,15 @@ import React from 'react';
 import { BookOpen, FileText, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 
 const StatCard = ({ title, value, icon: Icon, color }) => (
-    <div className={`p-6 rounded-[2rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default group`}>
+    <div className={`p-8 rounded-[2.5rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-default group border border-white/20 dark:border-white/10`}>
         {/* Soft background glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full mix-blend-overlay filter blur-2xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform duration-500"></div>
-        <div>
-            <p className="text-sm font-bold text-white/80 mb-1">{title}</p>
-            <h3 className="text-3xl font-black text-white">{value}</h3>
+        <div className="absolute top-0 right-0 w-40 h-40 bg-white/30 rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
+        <div className="relative z-10">
+            <p className="text-xs font-black text-white/70 mb-2 uppercase tracking-widest">{title}</p>
+            <h3 className="text-4xl font-black text-white tracking-tighter">{value}</h3>
         </div>
-        <div className={`p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/20`}>
-            <Icon className="h-7 w-7 text-white" />
+        <div className="relative z-10 p-5 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
+            <Icon className="h-8 w-8 text-white" />
         </div>
     </div>
 );

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useWebSocket } from '../context/WebSocketContext';
+import { useTheme } from '../context/ThemeContext';
 import Sidebar from '../components/Dashboard/Sidebar';
 import StatsCards from '../components/Dashboard/StatsCards';
 import AssignmentList from '../components/Dashboard/AssignmentList';
 import SubmissionTable from '../components/Dashboard/SubmissionTable';
-import { Plus, X, Award, Search, User, Lock, Mail, HelpCircle, Settings as SettingsIcon, BookOpen, FileText } from 'lucide-react';
+import { Plus, X, Award, Search, User, Lock, Mail, HelpCircle, Settings as SettingsIcon, BookOpen, FileText, Sun, Moon } from 'lucide-react';
 import UpcomingEvents from '../components/Dashboard/UpcomingEvents';
 import CourseMaterials from '../components/Dashboard/CourseMaterials';
 import CalendarWidget from '../components/CalendarWidget';
@@ -16,6 +17,7 @@ import Toast from '../components/Toast';
 const TeacherDashboard = () => {
     const { user, logout } = useAuth();
     const stompClient = useWebSocket();
+    const { isDark, toggleTheme } = useTheme();
     const [activeTab, setActiveTab] = useState('dashboard');
     const [stats, setStats] = useState({
         totalAssignments: 0,
@@ -223,20 +225,20 @@ const TeacherDashboard = () => {
     };
 
     return (
-        <div className="flex h-screen bg-gray-50">
+        <div className="flex h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
             <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} logout={logout} />
 
             <div className="flex-1 ml-64 overflow-y-auto relative animate-fade-in">
                 {/* Modern Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 -z-10 rounded-l-[3rem]"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-800/50 dark:via-gray-900 dark:to-gray-800/50 -z-10 rounded-l-[3rem]"></div>
 
                 {/* Content Container */}
                 <div className="relative z-10 p-8">
                     {/* Header */}
-                    <div className="flex justify-between items-center mb-8">
+                    <div className="flex justify-between items-center mb-8 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md p-6 rounded-[2rem] border border-white dark:border-gray-700 shadow-sm">
                         <div>
-                            <h1 className="text-2xl font-bold text-gray-900">
+                            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                                 {activeTab === 'dashboard' && 'Dashboard Overview'}
                                 {activeTab === 'courses' && 'My Courses'}
                                 {activeTab === 'assignments' && 'Assignment Management'}
@@ -244,21 +246,32 @@ const TeacherDashboard = () => {
                                 {activeTab === 'settings' && 'Account Settings'}
                                 {activeTab === 'help' && 'Help & Support'}
                             </h1>
-                            <p className="text-gray-500 mt-1">Welcome back, {user?.name}</p>
+                            <p className="text-gray-500 dark:text-gray-400 mt-1">Welcome back, {user?.name}</p>
                         </div>
-                        {activeTab === 'assignments' && (
+                        <div className="flex items-center gap-4">
+                            {/* Theme Toggle */}
                             <button
-                                onClick={() => setShowCreateAssignment(true)}
-                                disabled={courses.length === 0}
-                                className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors shadow-sm ${courses.length === 0
-                                    ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                                    : 'bg-indigo-600 text-white hover:bg-indigo-700'
-                                    }`}
+                                onClick={toggleTheme}
+                                className="p-2.5 rounded-xl bg-white dark:bg-gray-700 text-gray-500 dark:text-yellow-400 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 shadow-sm border border-gray-100 dark:border-gray-600"
+                                title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                             >
-                                <Plus className="h-5 w-5" />
-                                <span>Create Assignment</span>
+                                {isDark ? <Sun size={20} /> : <Moon size={20} />}
                             </button>
-                        )}
+
+                            {activeTab === 'assignments' && (
+                                <button
+                                    onClick={() => setShowCreateAssignment(true)}
+                                    disabled={courses.length === 0}
+                                    className={`flex items-center space-x-2 px-6 py-2.5 rounded-xl transition-all shadow-md ${courses.length === 0
+                                        ? 'bg-gray-300 dark:bg-gray-700 cursor-not-allowed text-gray-500'
+                                        : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-105 active:scale-95 shadow-indigo-500/20'
+                                        }`}
+                                >
+                                    <Plus className="h-5 w-5" />
+                                    <span className="font-semibold">Create Assignment</span>
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     {/* Content */}
@@ -268,33 +281,33 @@ const TeacherDashboard = () => {
 
                             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 relative z-10">
                                 <div className="xl:col-span-2 space-y-6">
-                                    <div className="bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 border border-white shadow-lg shadow-indigo-500/5">
-                                        <h3 className="text-xl font-bold text-gray-900 mb-6">Recent Activity Highlights</h3>
+                                    <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-[2.5rem] p-8 border border-white dark:border-gray-700 shadow-lg shadow-indigo-500/5">
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Recent Activity Highlights</h3>
                                         <div className="space-y-4">
                                             {/* Dynamic quick stats to replace fake activity text */}
-                                            <div className="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-white">
+                                            <div className="flex items-center justify-between p-4 bg-white/50 dark:bg-gray-700/50 rounded-2xl border border-white dark:border-gray-600">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600">
+                                                    <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                                                         <BookOpen size={20} />
                                                     </div>
                                                     <div>
-                                                        <p className="font-bold text-gray-800">Active Courses Managed</p>
-                                                        <p className="text-sm text-gray-500">Currently facilitating {courses.length} courses</p>
+                                                        <p className="font-bold text-gray-800 dark:text-gray-200">Active Courses Managed</p>
+                                                        <p className="text-sm text-gray-500 dark:text-gray-400">Currently facilitating {courses.length} courses</p>
                                                     </div>
                                                 </div>
-                                                <div className="text-2xl font-black text-indigo-600">{courses.length}</div>
+                                                <div className="text-2xl font-black text-indigo-600 dark:text-indigo-400">{courses.length}</div>
                                             </div>
-                                            <div className="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-white">
+                                            <div className="flex items-center justify-between p-4 bg-white/50 dark:bg-gray-700/50 rounded-2xl border border-white dark:border-gray-600">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+                                                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-xl flex items-center justify-center text-purple-600 dark:text-purple-400">
                                                         <FileText size={20} />
                                                     </div>
                                                     <div>
-                                                        <p className="font-bold text-gray-800">Total Assignments Posted</p>
-                                                        <p className="text-sm text-gray-500">Across all your courses</p>
+                                                        <p className="font-bold text-gray-800 dark:text-gray-200">Total Assignments Posted</p>
+                                                        <p className="text-sm text-gray-500 dark:text-gray-400">Across all your courses</p>
                                                     </div>
                                                 </div>
-                                                <div className="text-2xl font-black text-purple-600">{stats.totalAssignments}</div>
+                                                <div className="text-2xl font-black text-purple-600 dark:text-purple-400">{stats.totalAssignments}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -323,7 +336,7 @@ const TeacherDashboard = () => {
                                         }}
                                         className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCourse?.id === course.id
                                             ? 'bg-indigo-600 text-white'
-                                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                                            : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
                                             }`}
                                     >
                                         {course.title}
@@ -331,7 +344,7 @@ const TeacherDashboard = () => {
                                 ))}
                                 <button
                                     onClick={() => setShowCreateCourse(true)}
-                                    className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200 flex items-center"
+                                    className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 flex items-center"
                                 >
                                     <Plus className="h-4 w-4 mr-1" /> New Course
                                 </button>
@@ -351,44 +364,63 @@ const TeacherDashboard = () => {
                             )}
 
                             {showCreateAssignment && (
-                                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-                                    <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6">
-                                        <div className="flex justify-between items-center mb-6">
-                                            <h3 className="text-xl font-bold text-gray-900">Create New Assignment</h3>
-                                            <button onClick={() => setShowCreateAssignment(false)} className="text-gray-400 hover:text-gray-500">
+                                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full p-8 border border-white/20 dark:border-gray-700 overflow-hidden relative">
+                                        {/* Subtle decoration */}
+                                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                                        
+                                        <div className="flex justify-between items-center mb-8">
+                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Assignment</h3>
+                                            <button onClick={() => setShowCreateAssignment(false)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all">
                                                 <X className="h-6 w-6" />
                                             </button>
                                         </div>
-                                        <form onSubmit={handleCreateAssignment} className="space-y-4">
+                                        <form onSubmit={handleCreateAssignment} className="space-y-6">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                                                <input type="text" required className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2"
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Title</label>
+                                                <input type="text" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
+                                                    placeholder="Enter assignment title"
                                                     value={newAssignment.title} onChange={e => setNewAssignment({ ...newAssignment, title: e.target.value })} />
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                                                <textarea className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2" rows="3"
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                                                <textarea className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all" rows="3"
+                                                    placeholder="Describe the assignment..."
                                                     value={newAssignment.description} onChange={e => setNewAssignment({ ...newAssignment, description: e.target.value })} />
                                             </div>
                                             <div className="grid grid-cols-2 gap-4">
                                                 <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
-                                                    <input type="datetime-local" required className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2"
+                                                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Due Date</label>
+                                                    <input type="datetime-local" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
                                                         value={newAssignment.dueDate} onChange={e => setNewAssignment({ ...newAssignment, dueDate: e.target.value })} />
                                                 </div>
                                                 <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Max Marks</label>
-                                                    <input type="number" required className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2"
+                                                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Max Marks</label>
+                                                    <input type="number" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
+                                                        placeholder="20"
                                                         value={newAssignment.maxMarks} onChange={e => setNewAssignment({ ...newAssignment, maxMarks: e.target.value })} />
                                                 </div>
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Attachment (Optional)</label>
-                                                <input type="file" onChange={e => setAssignmentFile(e.target.files[0])} className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Attachment (Optional)</label>
+                                                <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-700 border-dashed rounded-xl hover:border-indigo-500 dark:hover:border-indigo-400 transition-all group">
+                                                    <div className="space-y-1 text-center">
+                                                        <FileText className="mx-auto h-12 w-12 text-gray-400 group-hover:text-indigo-500 transition-colors" />
+                                                        <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                                                            <label className="relative cursor-pointer rounded-md font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500">
+                                                                <span>Upload a file</span>
+                                                                <input type="file" className="sr-only" onChange={e => setAssignmentFile(e.target.files[0])} />
+                                                            </label>
+                                                            <p className="pl-1">or drag and drop</p>
+                                                        </div>
+                                                        <p className="text-xs text-gray-500">PDF, DOC up to 10MB</p>
+                                                        {assignmentFile && <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400 mt-2">{assignmentFile.name}</p>}
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div className="flex justify-end space-x-3 pt-4">
-                                                <button type="button" onClick={() => setShowCreateAssignment(false)} className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">Cancel</button>
-                                                <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-sm">Create Assignment</button>
+                                            <div className="flex justify-end space-x-4 pt-4">
+                                                <button type="button" onClick={() => setShowCreateAssignment(false)} className="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all font-semibold">Cancel</button>
+                                                <button type="submit" className="px-6 py-2.5 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-500/20 active:scale-95 transition-all font-semibold">Create Assignment</button>
                                             </div>
                                         </form>
                                     </div>
@@ -396,28 +428,32 @@ const TeacherDashboard = () => {
                             )}
 
                             {showCreateCourse && (
-                                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-                                    <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6">
-                                        <div className="flex justify-between items-center mb-6">
-                                            <h3 className="text-xl font-bold text-gray-900">Create New Course</h3>
-                                            <button onClick={() => setShowCreateCourse(false)} className="text-gray-400 hover:text-gray-500">
+                                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full p-8 border border-white/20 dark:border-gray-700 overflow-hidden relative">
+                                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                                        
+                                        <div className="flex justify-between items-center mb-8">
+                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Course</h3>
+                                            <button onClick={() => setShowCreateCourse(false)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all">
                                                 <X className="h-6 w-6" />
                                             </button>
                                         </div>
-                                        <form onSubmit={handleCreateCourse} className="space-y-4">
+                                        <form onSubmit={handleCreateCourse} className="space-y-6">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Course Title</label>
-                                                <input type="text" required className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2"
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Course Title</label>
+                                                <input type="text" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
+                                                    placeholder="Enter course name"
                                                     value={newCourse.title} onChange={e => setNewCourse({ ...newCourse, title: e.target.value })} />
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                                                <textarea className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border p-2" rows="3"
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                                                <textarea className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all" rows="3"
+                                                    placeholder="What will students learn?"
                                                     value={newCourse.description} onChange={e => setNewCourse({ ...newCourse, description: e.target.value })} />
                                             </div>
-                                            <div className="flex justify-end space-x-3 pt-4">
-                                                <button type="button" onClick={() => setShowCreateCourse(false)} className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">Cancel</button>
-                                                <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-sm">Create Course</button>
+                                            <div className="flex justify-end space-x-4 pt-4">
+                                                <button type="button" onClick={() => setShowCreateCourse(false)} className="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all font-semibold">Cancel</button>
+                                                <button type="submit" className="px-6 py-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 shadow-lg shadow-purple-500/20 active:scale-95 transition-all font-semibold">Create Course</button>
                                             </div>
                                         </form>
                                     </div>
@@ -436,17 +472,17 @@ const TeacherDashboard = () => {
                                     >
                                         &larr; Back to Assignments
                                     </button>
-                                    <h2 className="text-xl font-bold text-gray-900 mb-4">
+                                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                                         Submissions for {assignments.find(a => a.id === viewingAssignmentId)?.title || 'Assignment'}
                                     </h2>
                                     <SubmissionTable submissions={submissions} onGrade={handleGrade} />
                                 </div>
                             ) : (
-                                <div className="text-center py-12">
-                                    <p className="text-gray-500">Select an assignment to view submissions.</p>
+                                <div className="text-center py-12 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-[2.5rem] border border-white dark:border-gray-700">
+                                    <p className="text-gray-500 dark:text-gray-400">Select an assignment to view submissions.</p>
                                     <button
                                         onClick={() => setActiveTab('assignments')}
-                                        className="mt-4 text-indigo-600 hover:underline"
+                                        className="mt-4 text-indigo-600 dark:text-indigo-400 hover:underline font-semibold"
                                     >
                                         Go to Assignments
                                     </button>
@@ -469,20 +505,20 @@ const TeacherDashboard = () => {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {courses.map(course => (
-                                    <div key={course.id} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
-                                        <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
+                                    <div key={course.id} className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-6 rounded-2xl border border-white dark:border-gray-700 shadow-sm hover:shadow-md transition-all group">
+                                        <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/50 rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
                                             <Award className="h-6 w-6" />
                                         </div>
-                                        <h3 className="text-lg font-bold text-gray-900 mb-2">{course.title}</h3>
-                                        <p className="text-gray-500 text-sm mb-4 line-clamp-2">{course.description}</p>
-                                        <div className="flex justify-between items-center pt-4 border-t border-gray-50">
+                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{course.title}</h3>
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">{course.description}</p>
+                                        <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-gray-700">
                                             <button
                                                 onClick={() => {
                                                     setSelectedCourse(course);
                                                     fetchAssignments(course.id);
                                                     setActiveTab('assignments');
                                                 }}
-                                                className="text-sm font-medium text-indigo-600 hover:text-indigo-700"
+                                                className="text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
                                             >
                                                 View Assignments &rarr;
                                             </button>
@@ -490,9 +526,9 @@ const TeacherDashboard = () => {
                                     </div>
                                 ))}
                                 {courses.length === 0 && (
-                                    <div className="col-span-full text-center py-12 bg-white rounded-2xl border border-gray-100 border-dashed">
-                                        <p className="text-gray-500 mb-4">You haven't created any courses yet.</p>
-                                        <button onClick={() => setShowCreateCourse(true)} className="text-indigo-600 hover:text-indigo-700 font-medium">Create your first course</button>
+                                    <div className="col-span-full text-center py-12 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-white dark:border-gray-700 border-dashed">
+                                        <p className="text-gray-500 dark:text-gray-400 mb-4">You haven't created any courses yet.</p>
+                                        <button onClick={() => setShowCreateCourse(true)} className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 font-bold">Create your first course</button>
                                     </div>
                                 )}
                             </div>
@@ -500,15 +536,15 @@ const TeacherDashboard = () => {
                     )}
 
                     {activeTab === 'settings' && (
-                        <div className="max-w-3xl bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                            <div className="p-8 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+                        <div className="max-w-3xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-[2.5rem] shadow-sm border border-white dark:border-gray-700 overflow-hidden">
+                            <div className="p-8 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
                                 <div className="flex items-center space-x-6">
-                                    <div className="h-24 w-24 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-4xl font-bold border-4 border-white shadow-md">
+                                    <div className="h-24 w-24 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-4xl font-bold border-4 border-white dark:border-gray-700 shadow-md">
                                         {user?.name?.charAt(0) || 'T'}
                                     </div>
                                     <div>
-                                        <h2 className="text-3xl font-bold text-gray-900">{user?.name}</h2>
-                                        <p className="text-indigo-600 font-medium mt-1 flex items-center bg-indigo-50 inline-flex px-3 py-1 rounded-full text-sm">
+                                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{user?.name}</h2>
+                                        <p className="text-indigo-600 dark:text-indigo-400 font-bold mt-1 flex items-center bg-indigo-50 dark:bg-indigo-900/30 inline-flex px-3 py-1 rounded-full text-sm">
                                             <User className="h-4 w-4 mr-1.5" /> Teacher Account
                                         </p>
                                     </div>
@@ -516,32 +552,32 @@ const TeacherDashboard = () => {
                             </div>
                             <div className="p-8 space-y-8">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Profile Information</h3>
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Profile Information</h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Full Name</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                                    <User className="h-5 w-5 text-gray-400" />
+                                                    <User className="h-5 w-5 text-gray-400 dark:text-gray-500" />
                                                 </div>
-                                                <input type="text" disabled defaultValue={user?.name} className="bg-gray-50 pl-11 w-full border border-gray-200 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 text-gray-600" />
+                                                <input type="text" disabled defaultValue={user?.name} className="bg-gray-50 dark:bg-gray-900 pl-11 w-full border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 text-gray-600 dark:text-gray-400 transition-all" />
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Email Address</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                                    <Mail className="h-5 w-5 text-gray-400" />
+                                                    <Mail className="h-5 w-5 text-gray-400 dark:text-gray-500" />
                                                 </div>
-                                                <input type="email" disabled defaultValue={user?.email || 'teacher@edusub.com'} className="bg-gray-50 pl-11 w-full border border-gray-200 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 text-gray-600" />
+                                                <input type="email" disabled defaultValue={user?.email || 'teacher@edusub.com'} className="bg-gray-50 dark:bg-gray-900 pl-11 w-full border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 text-gray-600 dark:text-gray-400 transition-all" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="pt-8 border-t border-gray-100">
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Security</h3>
-                                    <p className="text-sm text-gray-500 mb-4">Update your password and secure your account.</p>
-                                    <button className="flex items-center space-x-2 text-indigo-600 font-medium px-5 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors">
+                                <div className="pt-8 border-t border-gray-100 dark:border-gray-700">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Security</h3>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Update your password and secure your account.</p>
+                                    <button className="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400 font-bold px-5 py-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
                                         <Lock className="h-4 w-4" />
                                         <span>Reset Password</span>
                                     </button>
@@ -558,7 +594,7 @@ const TeacherDashboard = () => {
                                     <p className="text-indigo-100 text-lg mb-8">Search our knowledge base or browse frequently asked questions below to find answers quickly.</p>
                                     <div className="relative shadow-md rounded-xl">
                                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <input type="text" placeholder="Search for answers..." className="w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white" />
+                                        <input type="text" placeholder="Search for answers..." className="w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-900 bg-white dark:bg-gray-800" />
                                     </div>
                                 </div>
                                 <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
@@ -566,24 +602,24 @@ const TeacherDashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                                <div className="p-8 border-b border-gray-100 bg-gray-50/50">
+                            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-[2.5rem] shadow-sm border border-white dark:border-gray-700 overflow-hidden">
+                                <div className="p-8 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50">
                                     <div className="flex items-center">
-                                        <div className="p-2 bg-indigo-100 rounded-lg mr-4">
-                                            <HelpCircle className="h-6 w-6 text-indigo-600" />
+                                        <div className="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg mr-4">
+                                            <HelpCircle className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-900">Frequently Asked Questions</h3>
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">Frequently Asked Questions</h3>
                                     </div>
                                 </div>
-                                <div className="divide-y divide-gray-100">
+                                <div className="divide-y divide-gray-100 dark:divide-gray-700">
                                     {[
                                         { q: "How do I create a new course?", a: "Navigate to the Courses tab and click the 'New Course' button in the top right. Fill in the title and description, then save to start adding assignments." },
                                         { q: "Can students see assignments immediately after creation?", a: "Yes, once an assignment is created within a course, any student enrolled in the platform can view and submit it." },
                                         { q: "How do I grade a submission?", a: "Go to the Submissions tab, select an assignment, and you will see a list of student submissions. Click 'Grade', enter the marks and optional feedback, and save." }
                                     ].map((faq, i) => (
-                                        <div key={i} className="p-8 hover:bg-gray-50/50 transition-colors">
-                                            <h4 className="text-lg font-semibold text-gray-900 mb-3">{faq.q}</h4>
-                                            <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                                        <div key={i} className="p-8 hover:bg-gray-50/50 dark:hover:bg-gray-700/50 transition-colors">
+                                            <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{faq.q}</h4>
+                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{faq.a}</p>
                                         </div>
                                     ))}
                                 </div>
