@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Service
+@SuppressWarnings("null")
 @RequiredArgsConstructor
 public class CourseMaterialService {
 
@@ -39,7 +40,7 @@ public class CourseMaterialService {
                 Files.createDirectories(uploadPath);
             }
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            Path filePath = uploadPath.resolve(fileName);
+            Path filePath = uploadPath.resolve(fileName).toAbsolutePath();
             file.transferTo(filePath.toFile());
 
             String fileUrl = ServletUriComponentsBuilder.fromCurrentContextPath()

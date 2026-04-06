@@ -21,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/submissions")
+@SuppressWarnings("null")
 @RequiredArgsConstructor
 public class SubmissionController {
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import { BookOpen, FileText, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 
-const StatCard = ({ title, value, icon: Icon, color }) => (
-    <div className={`p-8 rounded-[2.5rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-default group border border-white/20 dark:border-white/10`}>
+const StatCard = ({ title, value, icon: Icon, color, onClick }) => (
+    <div 
+        onClick={onClick}
+        className={`p-8 rounded-[2.5rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${onClick ? 'cursor-pointer active:scale-95' : 'cursor-default'} group border border-white/20 dark:border-white/10`}
+    >
         {/* Soft background glow */}
         <div className="absolute top-0 right-0 w-40 h-40 bg-white/30 rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
         <div className="relative z-10">
@@ -15,7 +18,7 @@ const StatCard = ({ title, value, icon: Icon, color }) => (
     </div>
 );
 
-const StatsCards = ({ stats }) => {
+const StatsCards = ({ stats, onTabClick }) => {
     if (!stats) return null;
 
     return (
@@ -25,24 +28,28 @@ const StatsCards = ({ stats }) => {
                 value={stats.totalAssignments}
                 icon={BookOpen}
                 color="bg-gradient-to-br from-indigo-400 to-indigo-600 shadow-indigo-500/20"
+                onClick={() => onTabClick && onTabClick('assignments')}
             />
             <StatCard
                 title="Submissions"
                 value={stats.totalSubmissions}
                 icon={FileText}
                 color="bg-gradient-to-br from-purple-400 to-purple-600 shadow-purple-500/20"
+                onClick={() => onTabClick && onTabClick('submissions')}
             />
             <StatCard
                 title="Pending Review"
                 value={stats.pendingReviews}
                 icon={AlertCircle}
                 color="bg-gradient-to-br from-rose-400 to-rose-600 shadow-rose-500/20"
+                onClick={() => onTabClick && onTabClick('submissions')}
             />
             <StatCard
                 title="Graded"
                 value={stats.gradedSubmissions}
                 icon={CheckCircle}
                 color="bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-emerald-500/20"
+                onClick={() => onTabClick && onTabClick('submissions')}
             />
         </div>
     );

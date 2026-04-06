@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Upload, Clock, CheckCircle, AlertCircle, Award } from 'lucide-react';
+import { Upload, Clock, CheckCircle, AlertCircle, Award, Download, Paperclip } from 'lucide-react';
 import CourseMaterials from './Dashboard/CourseMaterials';
 
 const CourseAssignmentsView = ({ course, onClose, onRefresh }) => {
@@ -66,6 +66,37 @@ const AssignmentItem = ({ assignment, submission, onRefresh }) => {
     const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
 
+    const handleDownloadAttached = async (url) => {
+        if (!url) return;
+        try {
+            const token = localStorage.getItem('token');
+            const fileName = url.substring(url.lastIndexOf('/') + 1);
+            const downloadApiUrl = `/api/submissions/download/${fileName}`;
+            
+            const response = await fetch(downloadApiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) throw new Error('Download failed');
+
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = downloadUrl;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(downloadUrl);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading:', error);
+            alert('Failed to download file');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file) return;
@@ -106,9 +137,20 @@ const AssignmentItem = ({ assignment, submission, onRefresh }) => {
                         )}
                     </div>
                     <p className="text-gray-600 text-sm mb-4">{assignment.description}</p>
-                    <div className="flex items-center gap-4 text-xs text-gray-400 font-medium">
-                        <span className="flex items-center gap-1"><Clock size={12} /> Due: {new Date(assignment.dueDate).toLocaleDateString()}</span>
-                        <span className="flex items-center gap-1"><Award size={12} /> {assignment.maxMarks} Marks</span>
+                    <div className="flex flex-wrap items-center gap-4 text-xs font-medium">
+                        <span className="flex items-center gap-1 text-gray-400"><Clock size={12} /> Due: {new Date(assignment.dueDate).toLocaleDateString()}</span>
+                        <span className="flex items-center gap-1 text-gray-400"><Award size={12} /> {assignment.maxMarks} Marks</span>
+                        {assignment.fileUrl && (
+                            <button 
+                                onClick={() => handleDownloadAttached(assignment.fileUrl)}
+                                className="flex items-center gap-2 hover:bg-indigo-100 text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md transition-colors border border-indigo-100 font-bold"
+                                title="Download Reference Material"
+                            >
+                                <Paperclip className="h-3 w-3" />
+                                <span>Reference Attached</span>
+                                <Download className="h-3 w-3 ml-1" />
+                            </button>
+                        )}
                     </div>
                 </div>
 

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@SuppressWarnings("null")
 @RequiredArgsConstructor
 public class AssignmentService {
 

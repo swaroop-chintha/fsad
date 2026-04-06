@@ -1,7 +1,38 @@
-import React, { useState } from 'react';
-import { Edit, Trash2, Calendar, FileText } from 'lucide-react';
+import React from 'react';
+import { Edit, Trash2, Calendar, FileText, Download, Paperclip } from 'lucide-react';
 
 const AssignmentList = ({ assignments, onDelete, onViewSubmissions }) => {
+    const handleDownloadAttached = async (url) => {
+        if (!url) return;
+        try {
+            const token = localStorage.getItem('token');
+            const fileName = url.substring(url.lastIndexOf('/') + 1);
+            const downloadApiUrl = `/api/submissions/download/${fileName}`;
+            
+            const response = await fetch(downloadApiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) throw new Error('Download failed');
+
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = downloadUrl;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(downloadUrl);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading:', error);
+            alert('Failed to download file');
+        }
+    };
+
     if (!assignments || assignments.length === 0) {
         return (
             <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-[2.5rem] shadow-sm p-12 text-center border border-white dark:border-gray-700">
@@ -37,6 +68,17 @@ const AssignmentList = ({ assignments, onDelete, onViewSubmissions }) => {
                                     <span className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-3 py-1.5 rounded-lg border border-indigo-100 dark:border-indigo-800">
                                         {assignment.maxMarks} Points Possible
                                     </span>
+                                    {assignment.fileUrl && (
+                                        <button 
+                                            onClick={() => handleDownloadAttached(assignment.fileUrl)}
+                                            className="flex items-center gap-2 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1.5 rounded-lg transition-colors border border-indigo-100 dark:border-indigo-800/50"
+                                            title="Download Reference Material"
+                                        >
+                                            <Paperclip className="h-3.5 w-3.5" />
+                                            <span>Reference Attached</span>
+                                            <Download className="h-3.5 w-3.5 ml-1" />
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                             <div className="flex items-center space-x-3 w-full md:w-auto">

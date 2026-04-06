@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext'; // Keeping auth context
 import { BookOpen, CheckSquare, FileText, Bell, Calendar as CalendarIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import StatCard from '../components/StatCard';
@@ -12,6 +13,7 @@ import UpcomingEvents from '../components/Dashboard/UpcomingEvents';
 
 const StudentDashboard = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
     const [courses, setCourses] = useState([]);
     const [assignments, setAssignments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +56,7 @@ const StudentDashboard = () => {
             const subRes = await axios.get('/api/submissions/my-submissions');
             const mySubmissions = subRes.data;
 
-            // 3. Fetch Assignments for ALL courses (to calculate progress)
+            // 3. Fetch Assignments and Materials for ALL courses (to calculate progress)
             const coursesWithDetails = await Promise.all(coursesData.map(async (course) => {
                 try {
                     const assignRes = await axios.get(`/api/assignments/course/${course.id}`);
@@ -76,16 +78,24 @@ const StudentDashboard = () => {
                         courseEvents = eventsRes.data;
                     } catch (e) { console.error("Failed to fetch events", e); }
 
+                    // Fetch Materials (Lessons)
+                    let courseMaterials = [];
+                    try {
+                        const materialRes = await axios.get(`/api/course-materials/course/${course.id}`);
+                        courseMaterials = materialRes.data;
+                    } catch (e) { console.error("Failed to fetch materials", e); }
+
                     return {
                         ...course,
                         assignments: courseAssignments,
                         progress: progress,
                         submissions: courseSubmissions,
-                        events: courseEvents
+                        events: courseEvents,
+                        materials: courseMaterials
                     };
                 } catch (e) {
-                    console.error(`Failed to fetch assignments for course ${course.id}`, e);
-                    return { ...course, assignments: [], progress: 0, submissions: [], events: [] };
+                    console.error(`Failed to fetch details for course ${course.id}`, e);
+                    return { ...course, assignments: [], progress: 0, submissions: [], events: [], materials: [] };
                 }
             }));
 
@@ -93,8 +103,10 @@ const StudentDashboard = () => {
 
             // Aggregate Global Stats
             const allAssignments = coursesWithDetails.flatMap(c => c.assignments);
+            const allMaterials = coursesWithDetails.flatMap(c => c.materials);
             const totalAssignments = allAssignments.length;
             const completedAssignments = mySubmissions.length;
+            const totalLessons = allMaterials.length;
             const globalEvents = coursesWithDetails.flatMap(c => c.events).sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
 
             setAssignments(allAssignments); // Store all assignments
@@ -102,7 +114,7 @@ const StudentDashboard = () => {
 
             // Stats State
             setStats({
-                lessons: { total: coursesWithDetails.length * 5, completed: Math.round(coursesWithDetails.length * 2.5), progress: 50 }, // Mock lessons for now
+                lessons: { total: totalLessons, completed: 0, progress: 0 }, // Using real db values
                 assignments: {
                     total: totalAssignments,
                     completed: completedAssignments,
@@ -138,11 +150,12 @@ const StudentDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-2">
                 <StatCard
                     icon={BookOpen}
-                    label="Lessons"
-                    value={stats.lessons.completed.toString()}
-                    subLabel={`of ${stats.lessons.total} completed`}
-                    progress={stats.lessons.progress}
+                    label="Lessons available"
+                    value={stats.lessons.total.toString()}
+                    subLabel={`Across ${courses.length} courses`}
+                    progress={100}
                     color="bg-gradient-to-br from-orange-400 to-orange-500 text-white shadow-orange-500/20"
+                    onClick={() => navigate('/student/courses')}
                 />
                 <StatCard
                     icon={CheckSquare}
@@ -151,6 +164,7 @@ const StudentDashboard = () => {
                     subLabel={`of ${stats.assignments.total} completed`}
                     progress={stats.assignments.progress}
                     color="bg-gradient-to-br from-rose-400 to-rose-500 text-white shadow-rose-500/20"
+                    onClick={() => navigate('/student/courses')}
                 />
                 <StatCard
                     icon={FileText}
@@ -159,6 +173,7 @@ const StudentDashboard = () => {
                     subLabel={`of ${stats.tests.total} completed`}
                     progress={stats.tests.progress}
                     color="bg-gradient-to-br from-emerald-400 to-emerald-500 text-white shadow-emerald-500/20"
+                    onClick={() => navigate('/student/courses')}
                 />
             </div>
 

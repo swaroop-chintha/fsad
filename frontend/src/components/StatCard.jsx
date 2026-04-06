@@ -1,13 +1,16 @@
 import React from 'react';
 
-const StatCard = ({ icon: Icon, label, value, subLabel, color, progress }) => {
+const StatCard = ({ icon: Icon, label, value, subLabel, color, progress, onClick }) => {
     // Calculate circle circumference for SVG dasharray
     const radius = 24;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (progress / 100) * circumference;
 
     return (
-        <div className={`p-6 rounded-[2rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default group`}>
+        <div 
+            onClick={onClick}
+            className={`p-6 rounded-[2rem] ${color} relative overflow-hidden flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${onClick ? 'cursor-pointer active:scale-95' : 'cursor-default'} group`}
+        >
             {/* Soft background glow */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full mix-blend-overlay filter blur-2xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform duration-500"></div>
             <div>

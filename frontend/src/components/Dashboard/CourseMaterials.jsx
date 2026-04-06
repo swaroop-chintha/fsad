@@ -58,7 +58,11 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
     const handleDownloadMaterial = async (url, title) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(url, {
+            const fileName = url.substring(url.lastIndexOf('/') + 1) || title;
+            // Use Vite proxy path for secure downloading
+            const downloadApiUrl = `/api/submissions/download/${fileName}`;
+            
+            const response = await fetch(downloadApiUrl, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -73,8 +77,7 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
             const a = document.createElement('a');
             a.style.display = 'none';
             a.href = downloadUrl;
-            // Extract filename from URL or use the material title
-            const fileName = url.substring(url.lastIndexOf('/') + 1) || title;
+            // fileName was defined above, just assign to download
             a.download = fileName;
             document.body.appendChild(a);
             a.click();

@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@SuppressWarnings("null")
 @RequiredArgsConstructor
 public class AuthenticationService {
     private final UserRepository repository;

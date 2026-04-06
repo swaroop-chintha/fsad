@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Download, CheckCircle, AlertCircle, FileText, Check, MessageSquare } from 'lucide-react';
+
 const SubmissionTable = ({ submissions, onGrade }) => {
     if (!submissions || submissions.length === 0) {
         return (
@@ -47,8 +50,7 @@ const SubmissionRow = ({ submission, onGrade }) => {
     const handleDownload = async () => {
         try {
             const token = localStorage.getItem('token');
-            const apiUrl = import.meta.env.VITE_API_URL || '';
-            const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+            const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
             const url = `${baseUrl}/api/submissions/download/${submission.fileUrl}`;
             
             const response = await fetch(url, {

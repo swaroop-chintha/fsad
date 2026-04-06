@@ -41,6 +41,8 @@ const TeacherDashboard = () => {
         setToast({ message, type });
     };
 
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
     // Initial Data Fetch
     useEffect(() => {
         fetchStats();
@@ -226,10 +228,14 @@ const TeacherDashboard = () => {
 
     return (
         <div className="flex h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-            {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
-            <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} logout={logout} />
+            {toast && (
+                <div className="fixed top-4 right-4 z-[9999]">
+                    <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
+                </div>
+            )}
+            <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} logout={logout} isCollapsed={isSidebarCollapsed} onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)} />
 
-            <div className="flex-1 ml-64 overflow-y-auto relative animate-fade-in">
+            <div className={`flex-1 transition-all duration-300 ${isSidebarCollapsed ? 'ml-20' : 'ml-64'} overflow-y-auto relative animate-fade-in`}>
                 {/* Modern Gradient Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-800/50 dark:via-gray-900 dark:to-gray-800/50 -z-10 rounded-l-[3rem]"></div>
 
@@ -277,7 +283,7 @@ const TeacherDashboard = () => {
                     {/* Content */}
                     {activeTab === 'dashboard' && (
                         <>
-                            <StatsCards stats={stats} />
+                            <StatsCards stats={stats} onTabClick={setActiveTab} />
 
                             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 relative z-10">
                                 <div className="xl:col-span-2 space-y-6">
