@@ -1,0 +1,527 @@
+{
+  "info": {
+    "name": "FSAD API Collection",
+    "description": "API collection for the FSAD Online Virtual Classroom / Assignment platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@student.com\",\n  \"password\": \"password123\",\n  \"role\": \"STUDENT\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var data = pm.response.json();",
+                  "    if (data.token) {",
+                  "        pm.environment.set(\"jwt_token\", data.token);",
+                  "        console.log(\"Token automatically set in environment variables\");",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@student.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Courses",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "item": [
+        {
+          "name": "Create Course",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Advanced Java\",\n  \"description\": \"Learn advanced concepts in Java.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Courses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/courses",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get My Courses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/courses/my-courses",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                "my-courses"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Assignments",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "item": [
+        {
+          "name": "Create Assignment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Lab 1",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Complete lab constraints",
+                  "type": "text"
+                },
+                {
+                  "key": "dueDate",
+                  "value": "2026-05-01T23:59:59",
+                  "type": "text"
+                },
+                {
+                  "key": "courseId",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/assignments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Course Assignments",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/assignments/course/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignments",
+                "course",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Single Assignment",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/assignments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignments",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Assignment",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/assignments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignments",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Submissions",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "item": [
+        {
+          "name": "Submit Assignment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "assignmentId",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/submissions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Assignment Submissions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/submissions/assignment/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions",
+                "assignment",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get My Submissions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/submissions/my-submissions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions",
+                "my-submissions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Grade Submission",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grade\": \"A\",\n  \"feedback\": \"Great job!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/submissions/1/grade",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions",
+                "1",
+                "grade"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Download File",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/submissions/download/fileName.pdf",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions",
+                "download",
+                "fileName.pdf"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Events & Calendar",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "item": [
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Office Hours\",\n  \"description\": \"Q&A session\",\n  \"eventDate\": \"2026-05-10T10:00:00\",\n  \"courseId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/events",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Course Events",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/events/course/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                "course",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Global Calendar Events",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/calendar-events",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "calendar-events"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Dashboard Stats",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "item": [
+        {
+          "name": "Teacher Stats",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/dashboard/teacher-stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "teacher-stats"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api",
+      "type": "string"
+    }
+  ]
+}
