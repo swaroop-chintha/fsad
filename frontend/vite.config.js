@@ -10,6 +10,19 @@ export default defineConfig(({ mode }) => {
     define: {
       global: 'window',
     },
+    resolve: {
+      alias: {
+        process: 'process/browser',
+      },
+    },
+    optimizeDeps: {
+      exclude: ['sockjs-client', '@stomp/stompjs'],
+    },
+    build: {
+      rollupOptions: {
+        external: ['process'],
+      },
+    },
     server: {
       proxy: {
         '/api': {
