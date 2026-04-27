@@ -41,18 +41,23 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const response = await axios.post("/api/auth/login", { email, password });
-            const { token, role, name } = response?.data || {};
+            
+            if (response.status === 200 && response.data?.token) {
+                const { token, role, name } = response.data;
 
-            localStorage.setItem("token", token);
-            localStorage.setItem("role", role);
-            localStorage.setItem("name", name);
+                localStorage.setItem("token", token);
+                localStorage.setItem("role", role);
+                localStorage.setItem("name", name);
 
-            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-            setUser({ token, role, name });
-            return { success: true, role };
+                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+                setUser({ token, role, name });
+                return { success: true, role };
+            } else {
+                return { success: false, message: "Invalid credentials" };
+            }
         } catch (error) {
             console.error("Login failed", error);
-            return { success: false, message: error.response?.data?.message || "Login failed" };
+            return { success: false, message: "Invalid credentials" };
         }
     };
 
