@@ -1,0 +1,41 @@
+# Maven build artifacts
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+backend.log
+backend_run.log
+
+# IDE / Eclipse files
+.classpath
+.factorypath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+uploads/
+
+# Environment / secrets
+.env
+*.env
+application-local.properties
+
+# Spring Boot DevTools
+spring-devtools.properties

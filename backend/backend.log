@@ -1,3 +1,4 @@
+Using JAVA_HOME: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ---------------------< com.fsad:assignment-system >---------------------
@@ -35,29 +36,24 @@
 
  :: Spring Boot ::                (v3.4.1)
 
-2026-02-24T21:27:17.418+05:30  INFO 98316 --- [           main] c.fsad.assignment.AssignmentApplication  : Starting AssignmentApplication using Java 25.0.2 with PID 98316 (/Users/vybhavswaroop/Desktop/fsad project/backend/target/classes started by vybhavswaroop in /Users/vybhavswaroop/Desktop/fsad project/backend)
-2026-02-24T21:27:17.419+05:30  INFO 98316 --- [           main] c.fsad.assignment.AssignmentApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-02-24T21:27:17.691+05:30  INFO 98316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-24T21:27:17.713+05:30  INFO 98316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 6 JPA repository interfaces.
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/Users/vybhavswaroop/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.34/tomcat-embed-core-10.1.34.jar)
-WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-2026-02-24T21:27:17.938+05:30  INFO 98316 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-02-24T21:27:17.944+05:30  INFO 98316 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-24T21:27:17.944+05:30  INFO 98316 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
-2026-02-24T21:27:17.967+05:30  INFO 98316 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-02-24T21:27:17.967+05:30  INFO 98316 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 534 ms
-2026-02-24T21:27:18.028+05:30  INFO 98316 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-02-24T21:27:18.047+05:30  INFO 98316 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
-2026-02-24T21:27:18.058+05:30  INFO 98316 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-02-24T21:27:18.157+05:30  INFO 98316 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-24T21:27:18.168+05:30  INFO 98316 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-24T21:27:18.232+05:30  INFO 98316 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7db47323
-2026-02-24T21:27:18.233+05:30  INFO 98316 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-24T21:27:18.250+05:30  WARN 98316 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-02-24T21:27:18.255+05:30  INFO 98316 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-04-09T14:27:11.143+05:30  INFO 77837 --- [           main] c.fsad.assignment.AssignmentApplication  : Starting AssignmentApplication using Java 21.0.9 with PID 77837 (/Users/vybhavswaroop/Desktop/fsad project/backend/target/classes started by vybhavswaroop in /Users/vybhavswaroop/Desktop/fsad project/backend)
+2026-04-09T14:27:11.144+05:30  INFO 77837 --- [           main] c.fsad.assignment.AssignmentApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-04-09T14:27:11.423+05:30  INFO 77837 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-09T14:27:11.446+05:30  INFO 77837 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 7 JPA repository interfaces.
+2026-04-09T14:27:11.648+05:30  INFO 77837 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-09T14:27:11.653+05:30  INFO 77837 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-09T14:27:11.653+05:30  INFO 77837 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-04-09T14:27:11.671+05:30  INFO 77837 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-09T14:27:11.671+05:30  INFO 77837 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 510 ms
+2026-04-09T14:27:11.722+05:30  INFO 77837 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-09T14:27:11.741+05:30  INFO 77837 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2026-04-09T14:27:11.752+05:30  INFO 77837 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-09T14:27:11.844+05:30  INFO 77837 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-09T14:27:11.854+05:30  INFO 77837 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-09T14:27:11.920+05:30  INFO 77837 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b444b5
+2026-04-09T14:27:11.921+05:30  INFO 77837 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-09T14:27:11.941+05:30  WARN 77837 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-09T14:27:11.946+05:30  INFO 77837 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 9.5
@@ -65,35 +61,792 @@ WARNING: Restricted methods will be blocked in a future release unless native ac
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-24T21:27:18.568+05:30  INFO 98316 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-02-24T21:27:18.619+05:30  INFO 98316 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-24T21:27:18.777+05:30  INFO 98316 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-24T21:27:19.020+05:30  INFO 98316 --- [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-02-24T21:27:19.022+05:30  WARN 98316 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-02-24T21:27:19.120+05:30  WARN 98316 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-24T21:27:19.401+05:30  INFO 98316 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-02-24T21:27:19.401+05:30  INFO 98316 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4589bc66]]
-2026-02-24T21:27:19.401+05:30  INFO 98316 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-02-24T21:27:19.406+05:30  INFO 98316 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-02-24T21:27:19.410+05:30  INFO 98316 --- [           main] c.fsad.assignment.AssignmentApplication  : Started AssignmentApplication in 2.119 seconds (process running for 2.223)
-2026-02-24T21:28:19.411+05:30  INFO 98316 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-02-24T21:29:06.315+05:30  INFO 98316 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-24T21:29:06.315+05:30  INFO 98316 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-02-24T21:29:06.316+05:30  INFO 98316 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'HEAD' is not supported
-	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:267)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:441)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
-	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:127)
-	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
-	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:509)
-	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+2026-04-09T14:27:12.285+05:30  INFO 77837 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-09T14:27:12.332+05:30  INFO 77837 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09T14:27:12.484+05:30  INFO 77837 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-09T14:27:12.777+05:30  INFO 77837 --- [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-09T14:27:12.777+05:30  WARN 77837 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-09T14:27:12.885+05:30  WARN 77837 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-09T14:27:13.177+05:30  INFO 77837 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-04-09T14:27:13.177+05:30  INFO 77837 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3fc0f3c2]]
+2026-04-09T14:27:13.177+05:30  INFO 77837 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-04-09T14:27:13.183+05:30  INFO 77837 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-09T14:27:13.188+05:30  INFO 77837 --- [           main] c.fsad.assignment.AssignmentApplication  : Started AssignmentApplication in 2.175 seconds (process running for 2.284)
+2026-04-09T14:28:13.186+05:30  INFO 77837 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-04-09T14:32:18.459+05:30  WARN 77837 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m6s426ms).
+2026-04-09T14:33:14.640+05:30  INFO 77837 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-09T14:33:14.640+05:30  INFO 77837 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-09T14:33:14.641+05:30  INFO 77837 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.created_by,
+        ce1_0.description,
+        ce1_0.event_date,
+        ce1_0.event_time,
+        ce1_0.role,
+        ce1_0.student_id,
+        ce1_0.title 
+    from
+        calendar_events ce1_0 
+    where
+        ce1_0.student_id=? 
+    order by
+        ce1_0.event_date
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.created_by,
+        ce1_0.description,
+        ce1_0.event_date,
+        ce1_0.event_time,
+        ce1_0.role,
+        ce1_0.student_id,
+        ce1_0.title 
+    from
+        calendar_events ce1_0 
+    where
+        ce1_0.role=? 
+    order by
+        ce1_0.event_date
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.created_by,
+        ce1_0.description,
+        ce1_0.event_date,
+        ce1_0.event_time,
+        ce1_0.role,
+        ce1_0.student_id,
+        ce1_0.title 
+    from
+        calendar_events ce1_0 
+    where
+        ce1_0.student_id=? 
+    order by
+        ce1_0.event_date
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.created_by,
+        ce1_0.description,
+        ce1_0.event_date,
+        ce1_0.event_time,
+        ce1_0.role,
+        ce1_0.student_id,
+        ce1_0.title 
+    from
+        calendar_events ce1_0 
+    where
+        ce1_0.role=? 
+    order by
+        ce1_0.event_date
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.assignment_id,
+        s1_0.feedback,
+        s1_0.file_url,
+        s1_0.marks,
+        s1_0.status,
+        s1_0.student_id,
+        s1_0.submission_date,
+        s1_0.text_comment 
+    from
+        submissions s1_0 
+    left join
+        users s2_0 
+            on s2_0.id=s1_0.student_id 
+    where
+        s2_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.assignment_id,
+        s1_0.feedback,
+        s1_0.file_url,
+        s1_0.marks,
+        s1_0.status,
+        s1_0.student_id,
+        s1_0.submission_date,
+        s1_0.text_comment 
+    from
+        submissions s1_0 
+    left join
+        users s2_0 
+            on s2_0.id=s1_0.student_id 
+    where
+        s2_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.instructor_id,
+        c1_0.title 
+    from
+        courses c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.course_id,
+        a1_0.description,
+        a1_0.due_date,
+        a1_0.file_url,
+        a1_0.max_marks,
+        a1_0.title 
+    from
+        assignments a1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=a1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/1.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.course_id,
+        e1_0.description,
+        e1_0.event_date,
+        e1_0.event_type,
+        e1_0.title 
+    from
+        events e1_0 
+    left join
+        courses c1_0 
+            on c1_0.id=e1_0.course_id 
+    where
+        c1_0.id=?
 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.doHead(HttpServlet.java:211)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
@@ -121,7 +874,7 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:35)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
@@ -181,2498 +934,525 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-2026-02-24T21:58:19.415+05:30  INFO 98316 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 45], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 3, completed tasks = 482]
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id 
-    from
-        users u1_0 
-    where
-        u1_0.email=? 
-    limit
-        ?
-Hibernate: 
-    insert 
-    into
-        users
-        (email, name, password, role) 
-    values
-        (?, ?, ?, ?)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-2026-02-24T23:36:27.786+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h24m9s138ms).
-2026-02-25T00:13:23.112+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m55s325ms).
-2026-02-25T01:45:41.668+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h32m18s557ms).
-2026-02-25T03:07:45.554+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h22m3s886ms).
-2026-02-25T04:41:08.219+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h33m22s665ms).
-2026-02-25T05:43:19.007+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h2m10s788ms).
-2026-02-25T07:11:47.626+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h28m28s619ms).
-2026-02-25T07:19:18.223+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m30s596ms).
-2026-02-25T07:31:18.910+05:30  INFO 98316 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 123], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 3], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 885]
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        s1_0.id,
-        s1_0.assignment_id,
-        s1_0.feedback,
-        s1_0.file_url,
-        s1_0.marks,
-        s1_0.status,
-        s1_0.student_id,
-        s1_0.submission_date,
-        s1_0.text_comment 
-    from
-        submissions s1_0 
-    left join
-        users s2_0 
-            on s2_0.id=s1_0.student_id 
-    where
-        s2_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=?
-Hibernate: 
-    select
-        c1_0.id,
-        c1_0.description,
-        c1_0.instructor_id,
-        c1_0.title 
-    from
-        courses c1_0 
-    left join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.id=?
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='PENDING'
-Hibernate: 
-    select
-        count(s1_0.id) 
-    from
-        submissions s1_0 
-    join
-        assignments a1_0 
-            on a1_0.id=s1_0.assignment_id 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and s1_0.status='GRADED'
-Hibernate: 
-    select
-        count(a1_0.id) 
-    from
-        assignments a1_0 
-    join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    join
-        users i1_0 
-            on i1_0.id=c1_0.instructor_id 
-    where
-        i1_0.email=? 
-        and a1_0.due_date>current_timestamp(6)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        a1_0.id,
-        a1_0.course_id,
-        a1_0.description,
-        a1_0.due_date,
-        a1_0.file_url,
-        a1_0.max_marks,
-        a1_0.title 
-    from
-        assignments a1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=a1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        cm1_0.id,
-        cm1_0.course_id,
-        cm1_0.description,
-        cm1_0.file_url,
-        cm1_0.title,
-        cm1_0.uploaded_at 
-    from
-        course_materials cm1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=cm1_0.course_id 
-    where
-        c1_0.id=? 
-    order by
-        cm1_0.uploaded_at desc
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role 
-    from
-        users u1_0 
-    where
-        u1_0.email=?
-Hibernate: 
-    select
-        e1_0.id,
-        e1_0.course_id,
-        e1_0.description,
-        e1_0.event_date,
-        e1_0.event_type,
-        e1_0.title 
-    from
-        events e1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=e1_0.course_id 
-    where
-        c1_0.id=?
-Hibernate: 
-    select
-        cm1_0.id,
-        cm1_0.course_id,
-        cm1_0.description,
-        cm1_0.file_url,
-        cm1_0.title,
-        cm1_0.uploaded_at 
-    from
-        course_materials cm1_0 
-    left join
-        courses c1_0 
-            on c1_0.id=cm1_0.course_id 
-    where
-        c1_0.id=? 
-    order by
-        cm1_0.uploaded_at desc
-2026-02-25T08:01:18.919+05:30  INFO 98316 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 8 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(4)-CONNECTED(4)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 234], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 12], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 1278]
-2026-02-25T08:31:18.926+05:30  INFO 98316 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 8 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(4)-CONNECTED(4)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 234], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 12], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 1639]
-2026-02-25T09:03:19.566+05:30  WARN 98316 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m631ms).
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/3.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/2.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/2.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/1.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/course-materials/course/3.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.fsad.assignment.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:57)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11:37 h
-[INFO] Finished at: 2026-02-25T09:04:54+05:30
+[INFO] Total time:  15:48 min
+[INFO] Finished at: 2026-04-09T14:42:58+05:30
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.1:run (default-cli) on project assignment-system: Process terminated with exit code: 137 -> [Help 1]
 [ERROR] 
