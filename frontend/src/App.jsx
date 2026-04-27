@@ -6,7 +6,6 @@ import TeacherDashboard from './pages/TeacherDashboard';
 import StudentDashboard from './pages/StudentDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
-import { WebSocketProvider } from './context/WebSocketContext';
 import { ToastProvider } from './context/ToastContext';
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -21,7 +20,6 @@ function App() {
     <ThemeProvider>
     <ToastProvider>
       <AuthProvider>
-        <WebSocketProvider>
           <Router>
             <Routes>
               <Route path="/login" element={<Login />} />
@@ -44,7 +42,6 @@ function App() {
               <Route path="/" element={<Navigate to="/login" replace />} />
             </Routes>
           </Router>
-        </WebSocketProvider>
       </AuthProvider>
     </ToastProvider>
     </ThemeProvider>

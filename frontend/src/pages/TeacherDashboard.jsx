@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { useWebSocket } from '../context/WebSocketContext';
+
 import { useTheme } from '../context/ThemeContext';
 import Sidebar from '../components/Dashboard/Sidebar';
 import StatsCards from '../components/Dashboard/StatsCards';
@@ -16,7 +16,7 @@ import Toast from '../components/Toast';
 
 const TeacherDashboard = () => {
     const { user, logout } = useAuth();
-    const stompClient = useWebSocket();
+
     const { isDark, toggleTheme } = useTheme();
     const [activeTab, setActiveTab] = useState('dashboard');
     const [stats, setStats] = useState({
@@ -64,29 +64,7 @@ const TeacherDashboard = () => {
         fetchCalendarEvents();
     };
 
-    // WebSocket Listeners
-    useEffect(() => {
-        if (stompClient && stompClient.connected) {
-            const assignmentSub = stompClient.subscribe('/topic/assignments', (message) => {
-                const type = message.body; // 'update' or 'delete'
-                fetchStats();
-                if (selectedCourse) fetchAssignments(selectedCourse.id);
-                if (type === 'delete') showToast('Assignment deleted', 'info');
-                else showToast('Assignment updated', 'info');
-            });
 
-            const submissionSub = stompClient.subscribe('/topic/submissions', (message) => {
-                fetchStats();
-                if (viewingAssignmentId) fetchSubmissions(viewingAssignmentId);
-                showToast('New submission activity', 'info');
-            });
-
-            return () => {
-                assignmentSub.unsubscribe();
-                submissionSub.unsubscribe();
-            };
-        }
-    }, [stompClient, selectedCourse, viewingAssignmentId]);
 
     const fetchStats = async () => {
         try {
