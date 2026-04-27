@@ -42,12 +42,13 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(LoginRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()));
         var user = repository.findByEmail(request.getEmail())
-                .orElseThrow();
+                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
