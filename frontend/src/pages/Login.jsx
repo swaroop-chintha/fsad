@@ -23,11 +23,7 @@ const Login = () => {
 
         if (result.success) {
             showToast("Successfully logged in!", "success");
-            if (result.role === "ADMIN") {
-                navigate("/teacher");
-            } else {
-                navigate("/student");
-            }
+            navigate("/dashboard");
         } else {
             showToast(result.message || "Failed to login", "error");
         }

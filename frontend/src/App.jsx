@@ -14,6 +14,14 @@ import StudentCourses from './pages/StudentCourses';
 import StudentChapters from './pages/StudentChapters';
 import StudentHelp from './pages/StudentHelp';
 import StudentSettings from './pages/StudentSettings';
+import { useAuth } from './context/AuthContext';
+
+const DashboardRouter = () => {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+  if (user.role === 'ADMIN') return <Navigate to="/teacher" replace />;
+  return <Navigate to="/student" replace />;
+};
 
 function App() {
   return (
@@ -24,6 +32,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/dashboard" element={<DashboardRouter />} />
 
               <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
                 <Route path="/teacher" element={<TeacherDashboard />} />
