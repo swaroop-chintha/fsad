@@ -9,17 +9,6 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       global: 'window',
-      'process.env': {},
-    },
-    resolve: {
-      alias: {
-        process: 'process/browser',
-        util: 'util/',
-        stream: 'stream-browserify',
-      },
-    },
-    optimizeDeps: {
-      exclude: ['sockjs-client', '@stomp/stompjs'],
     },
     server: {
       proxy: {
