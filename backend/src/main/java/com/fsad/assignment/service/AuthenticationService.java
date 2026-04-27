@@ -23,12 +23,13 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        if (repository.existsByEmail(request.getEmail())) {
+        String normalizedEmail = request.getEmail() != null ? request.getEmail().trim().toLowerCase() : null;
+        if (normalizedEmail == null || repository.existsByEmail(normalizedEmail)) {
             throw new RuntimeException("Email already exists");
         }
         var user = User.builder()
                 .name(request.getName())
-                .email(request.getEmail())
+                .email(normalizedEmail)
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole() != null ? request.getRole() : Role.STUDENT)
                 .build();
@@ -42,7 +43,8 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(LoginRequest request) {
-        var user = repository.findByEmail(request.getEmail())
+        String normalizedEmail = request.getEmail() != null ? request.getEmail().trim().toLowerCase() : null;
+        var user = repository.findByEmail(normalizedEmail)
                 .orElseThrow(() -> new RuntimeException("Invalid credentials"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
