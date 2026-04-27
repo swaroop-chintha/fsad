@@ -30,7 +30,7 @@ api.interceptors.response.use(
     (error) => {
         if (error.response && error.response.status === 401) {
             // Only force logout if it's not the actual login endpoint failing
-            if (error.config.url !== '/api/auth/login') {
+            if (error.config?.url !== '/api/auth/login') {
                 console.error("Authentication expired or invalid. Logging out.");
                 localStorage.removeItem("token");
                 localStorage.removeItem("role");
