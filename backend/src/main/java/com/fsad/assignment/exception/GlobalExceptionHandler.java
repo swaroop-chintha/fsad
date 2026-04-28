@@ -13,18 +13,30 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String, String>> handleRuntimeException(RuntimeException ex) {
-        ex.printStackTrace(); // Log the full stack trace to console
+        ex.printStackTrace();
         Map<String, String> response = new HashMap<>();
-        response.put("error", ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        String message = ex.getMessage();
+        response.put("message", message);
+
+        HttpStatus status;
+        if ("Email already exists".equals(message)) {
+            status = HttpStatus.CONFLICT; // 409
+        } else if ("Invalid credentials".equals(message)) {
+            status = HttpStatus.UNAUTHORIZED; // 401
+        } else {
+            status = HttpStatus.BAD_REQUEST; // 400
+        }
+
+        return new ResponseEntity<>(response, status);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleException(Exception ex) {
-        ex.printStackTrace(); // Log the full stack trace to console
+        ex.printStackTrace();
         Map<String, String> response = new HashMap<>();
-        response.put("error", "An unexpected error occurred");
+        response.put("message", "An unexpected error occurred");
         response.put("details", ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+
