@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, BookOpen, FileText, CheckSquare, LogOut, Library, Settings, HelpCircle, Menu } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FileText, CheckSquare, LogOut, Library, Settings, HelpCircle, Menu, Users } from 'lucide-react';
 
 const Sidebar = ({ activeTab, setActiveTab, logout, isCollapsed, onToggle }) => {
     const menuItems = [
@@ -7,6 +7,7 @@ const Sidebar = ({ activeTab, setActiveTab, logout, isCollapsed, onToggle }) => 
         { id: 'courses', label: 'Courses', icon: Library },
         { id: 'assignments', label: 'Assignments', icon: BookOpen },
         { id: 'submissions', label: 'Submissions', icon: FileText },
+        { id: 'students', label: 'Students', icon: Users },
         { id: 'settings', label: 'Settings', icon: Settings },
         { id: 'help', label: 'Help', icon: HelpCircle },
     ];

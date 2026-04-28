@@ -7,7 +7,7 @@ import Sidebar from '../components/Dashboard/Sidebar';
 import StatsCards from '../components/Dashboard/StatsCards';
 import AssignmentList from '../components/Dashboard/AssignmentList';
 import SubmissionTable from '../components/Dashboard/SubmissionTable';
-import { Plus, X, Award, Search, User, Lock, Mail, HelpCircle, Settings as SettingsIcon, BookOpen, FileText, Sun, Moon } from 'lucide-react';
+import { Plus, X, Award, Search, User, Users, Lock, Mail, HelpCircle, Settings as SettingsIcon, BookOpen, FileText, Sun, Moon } from 'lucide-react';
 import UpcomingEvents from '../components/Dashboard/UpcomingEvents';
 import CourseMaterials from '../components/Dashboard/CourseMaterials';
 import CalendarWidget from '../components/CalendarWidget';
@@ -36,6 +36,8 @@ const TeacherDashboard = () => {
     const [assignmentFile, setAssignmentFile] = useState(null);
     const [viewingAssignmentId, setViewingAssignmentId] = useState(null);
     const [toast, setToast] = useState(null);
+    const [students, setStudents] = useState([]);
+    const [studentSearch, setStudentSearch] = useState('');
 
     const showToast = (message, type = 'info') => {
         setToast({ message, type });
@@ -49,6 +51,23 @@ const TeacherDashboard = () => {
         fetchCourses();
         fetchCalendarEvents();
     }, []);
+
+    // Fetch students when tab is activated
+    useEffect(() => {
+        if (activeTab === 'students') {
+            fetchStudents();
+        }
+    }, [activeTab]);
+
+    const fetchStudents = async () => {
+        try {
+            const res = await api.get('/api/users/students');
+            setStudents(res.data);
+        } catch (err) {
+            console.error("Failed to fetch students", err);
+            showToast('Failed to load students', 'error');
+        }
+    };
 
     const fetchCalendarEvents = async () => {
         try {
@@ -227,6 +246,7 @@ const TeacherDashboard = () => {
                                 {activeTab === 'courses' && 'My Courses'}
                                 {activeTab === 'assignments' && 'Assignment Management'}
                                 {activeTab === 'submissions' && 'Submission Review'}
+                                {activeTab === 'students' && 'Student Directory'}
                                 {activeTab === 'settings' && 'Account Settings'}
                                 {activeTab === 'help' && 'Help & Support'}
                             </h1>
@@ -482,6 +502,63 @@ const TeacherDashboard = () => {
                                         <button onClick={() => setShowCreateCourse(true)} className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 font-bold">Create your first course</button>
                                     </div>
                                 )}
+                            </div>
+                        </div>
+                    )}
+
+                    {activeTab === 'students' && (
+                        <div className="space-y-6">
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-xl font-bold text-gray-800 dark:text-white">Enrolled Students</h2>
+                                <div className="relative">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                                    <input
+                                        type="text"
+                                        placeholder="Search students..."
+                                        value={studentSearch}
+                                        onChange={(e) => setStudentSearch(e.target.value)}
+                                        className="pl-10 pr-4 py-2.5 bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all w-64"
+                                    />
+                                </div>
+                            </div>
+
+                            {students.length === 0 ? (
+                                <div className="text-center py-16 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-[2.5rem] border border-white dark:border-gray-700">
+                                    <Users className="h-16 w-16 mx-auto text-gray-300 dark:text-gray-600 mb-4" />
+                                    <p className="text-gray-500 dark:text-gray-400 text-lg font-medium">No students registered yet.</p>
+                                    <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Students will appear here once they sign up.</p>
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    {students
+                                        .filter(s =>
+                                            s.name.toLowerCase().includes(studentSearch.toLowerCase()) ||
+                                            s.email.toLowerCase().includes(studentSearch.toLowerCase())
+                                        )
+                                        .map(student => (
+                                            <div key={student.id} className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-5 rounded-2xl border border-white dark:border-gray-700 shadow-sm hover:shadow-md transition-all group">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-110 transition-transform">
+                                                        {student.name?.charAt(0)?.toUpperCase() || '?'}
+                                                    </div>
+                                                    <div className="min-w-0">
+                                                        <p className="font-bold text-gray-900 dark:text-white truncate">{student.name}</p>
+                                                        <p className="text-sm text-gray-500 dark:text-gray-400 truncate flex items-center gap-1">
+                                                            <Mail className="h-3.5 w-3.5 flex-shrink-0" />
+                                                            {student.email}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            )}
+
+                            <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-white dark:border-gray-700 p-4 text-center">
+                                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                                    Total Students: <span className="font-bold text-indigo-600 dark:text-indigo-400">{students.length}</span>
+                                </p>
                             </div>
                         </div>
                     )}
