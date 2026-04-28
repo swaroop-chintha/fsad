@@ -409,40 +409,6 @@ const TeacherDashboard = () => {
                                         </form>
                                     </div>
                                 </div>
-                            )}
-
-                            {showCreateCourse && (
-                                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-                                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full p-8 border border-white/20 dark:border-gray-700 overflow-hidden relative">
-                                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-                                        
-                                        <div className="flex justify-between items-center mb-8">
-                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Course</h3>
-                                            <button onClick={() => setShowCreateCourse(false)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all">
-                                                <X className="h-6 w-6" />
-                                            </button>
-                                        </div>
-                                        <form onSubmit={handleCreateCourse} className="space-y-6">
-                                            <div>
-                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Course Title</label>
-                                                <input type="text" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
-                                                    placeholder="Enter course name"
-                                                    value={newCourse.title} onChange={e => setNewCourse({ ...newCourse, title: e.target.value })} />
-                                            </div>
-                                            <div>
-                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Description</label>
-                                                <textarea className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all" rows="3"
-                                                    placeholder="What will students learn?"
-                                                    value={newCourse.description} onChange={e => setNewCourse({ ...newCourse, description: e.target.value })} />
-                                            </div>
-                                            <div className="flex justify-end space-x-4 pt-4">
-                                                <button type="button" onClick={() => setShowCreateCourse(false)} className="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all font-semibold">Cancel</button>
-                                                <button type="submit" className="px-6 py-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 shadow-lg shadow-purple-500/20 active:scale-95 transition-all font-semibold">Create Course</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            )}
                         </>
                     )}
 
@@ -612,6 +578,39 @@ const TeacherDashboard = () => {
                     )}
                 </div>
             </div>
+
+            {showCreateCourse && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full p-8 border border-white/20 dark:border-gray-700 overflow-hidden relative">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                        
+                        <div className="flex justify-between items-center mb-8">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Course</h3>
+                            <button onClick={() => setShowCreateCourse(false)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all">
+                                <X className="h-6 w-6" />
+                            </button>
+                        </div>
+                        <form onSubmit={handleCreateCourse} className="space-y-6">
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Course Title</label>
+                                <input type="text" required className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all"
+                                    placeholder="Enter course name"
+                                    value={newCourse.title} onChange={e => setNewCourse({ ...newCourse, title: e.target.value })} />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                                <textarea className="w-full bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-white p-3 transition-all" rows="3"
+                                    placeholder="What will students learn?"
+                                    value={newCourse.description} onChange={e => setNewCourse({ ...newCourse, description: e.target.value })} />
+                            </div>
+                            <div className="flex justify-end space-x-4 pt-4">
+                                <button type="button" onClick={() => setShowCreateCourse(false)} className="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-all font-semibold">Cancel</button>
+                                <button type="submit" className="px-6 py-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 shadow-lg shadow-purple-500/20 active:scale-95 transition-all font-semibold">Create Course</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
