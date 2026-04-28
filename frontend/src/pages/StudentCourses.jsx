@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { Search, Filter, Award } from 'lucide-react';
 import CourseAssignmentsView from '../components/CourseAssignmentsView';
 
@@ -13,12 +13,12 @@ const StudentCourses = () => {
         setIsLoading(true);
         try {
             // Fetch courses
-            const res = await axios.get('/api/courses');
+            const res = await api.get('/api/courses');
             
             // Fetch my submissions to sync State
             let mySubmissions = [];
             try {
-                const subRes = await axios.get('/api/submissions/my-submissions');
+                const subRes = await api.get('/api/submissions/my-submissions');
                 mySubmissions = subRes.data || [];
             } catch (err) {
                 console.warn("Could not fetch submissions overlay", err);
@@ -27,7 +27,7 @@ const StudentCourses = () => {
             // Bind assignments and matched submissions to each course
             const coursesWithData = await Promise.all(res.data.map(async (course) => {
                 try {
-                    const assignRes = await axios.get(`/api/assignments/course/${course.id}`);
+                    const assignRes = await api.get(`/api/assignments/course/${course.id}`);
                     const courseAssignments = assignRes.data || [];
                     
                     const courseSubmissions = mySubmissions.filter(sub => 

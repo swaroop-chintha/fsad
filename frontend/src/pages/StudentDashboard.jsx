@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext'; // Keeping auth context
 import { BookOpen, CheckSquare, FileText, Bell, Calendar as CalendarIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +33,7 @@ const StudentDashboard = () => {
 
     const fetchCalendarEvents = async () => {
         try {
-            const res = await axios.get('/api/calendar-events');
+            const res = await api.get('/api/calendar-events');
             setCalendarEvents(res.data);
         } catch (err) {
             console.error("Failed to fetch calendar events", err);
@@ -41,25 +41,25 @@ const StudentDashboard = () => {
     };
 
     const handleAddCalendarEvent = async (formData) => {
-        await axios.post('/api/calendar-events', formData);
+        await api.post('/api/calendar-events', formData);
         fetchCalendarEvents();
     };
 
     const fetchData = async () => {
         try {
             // 1. Fetch Courses
-            const coursesRes = await axios.get('/api/courses');
+            const coursesRes = await api.get('/api/courses');
             console.log("Fetched courses:", coursesRes.data); // Debug logging
             const coursesData = Array.isArray(coursesRes.data) ? coursesRes.data : [];
 
             // 2. Fetch My Submissions
-            const subRes = await axios.get('/api/submissions/my-submissions');
+            const subRes = await api.get('/api/submissions/my-submissions');
             const mySubmissions = subRes.data;
 
             // 3. Fetch Assignments and Materials for ALL courses (to calculate progress)
             const coursesWithDetails = await Promise.all(coursesData.map(async (course) => {
                 try {
-                    const assignRes = await axios.get(`/api/assignments/course/${course.id}`);
+                    const assignRes = await api.get(`/api/assignments/course/${course.id}`);
                     const courseAssignments = assignRes.data;
 
                     // Calculate progress
@@ -74,14 +74,14 @@ const StudentDashboard = () => {
                     // Fetch Events
                     let courseEvents = [];
                     try {
-                        const eventsRes = await axios.get(`/api/events/course/${course.id}`);
+                        const eventsRes = await api.get(`/api/events/course/${course.id}`);
                         courseEvents = eventsRes.data;
                     } catch (e) { console.error("Failed to fetch events", e); }
 
                     // Fetch Materials (Lessons)
                     let courseMaterials = [];
                     try {
-                        const materialRes = await axios.get(`/api/course-materials/course/${course.id}`);
+                        const materialRes = await api.get(`/api/course-materials/course/${course.id}`);
                         courseMaterials = materialRes.data;
                     } catch (e) { console.error("Failed to fetch materials", e); }
 

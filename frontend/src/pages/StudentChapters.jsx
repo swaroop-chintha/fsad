@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { Book, PlayCircle } from 'lucide-react';
 
 const StudentChapters = () => {
@@ -11,7 +11,7 @@ const StudentChapters = () => {
     useEffect(() => {
         const fetchModules = async () => {
             try {
-                const res = await axios.get('/api/courses');
+                const res = await api.get('/api/courses');
                 setModules(res.data);
             } catch (e) { console.error(e) }
         };

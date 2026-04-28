@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 import { useTheme } from '../context/ThemeContext';
@@ -52,7 +52,7 @@ const TeacherDashboard = () => {
 
     const fetchCalendarEvents = async () => {
         try {
-            const res = await axios.get('/api/calendar-events');
+            const res = await api.get('/api/calendar-events');
             setCalendarEvents(res.data);
         } catch (err) {
             console.error("Failed to fetch calendar events", err);
@@ -60,7 +60,7 @@ const TeacherDashboard = () => {
     };
 
     const handleAddCalendarEvent = async (formData) => {
-        await axios.post('/api/calendar-events', formData);
+        await api.post('/api/calendar-events', formData);
         fetchCalendarEvents();
     };
 
@@ -68,7 +68,7 @@ const TeacherDashboard = () => {
 
     const fetchStats = async () => {
         try {
-            const res = await axios.get('/api/dashboard/teacher-stats');
+            const res = await api.get('/api/dashboard/teacher-stats');
             setStats(res.data);
         } catch (err) {
             console.error("Failed to fetch stats", err);
@@ -78,7 +78,7 @@ const TeacherDashboard = () => {
 
     const fetchCourses = async () => {
         try {
-            const res = await axios.get('/api/courses/my-courses');
+            const res = await api.get('/api/courses/my-courses');
             setCourses(res.data);
             if (res.data.length > 0 && !selectedCourse) {
                 setSelectedCourse(res.data[0]);
@@ -92,7 +92,7 @@ const TeacherDashboard = () => {
 
     const fetchAssignments = async (courseId) => {
         try {
-            const res = await axios.get(`/api/assignments/course/${courseId}`);
+            const res = await api.get(`/api/assignments/course/${courseId}`);
             setAssignments(res.data);
         } catch (err) {
             console.error("Failed to fetch assignments", err);
@@ -102,7 +102,7 @@ const TeacherDashboard = () => {
 
     const fetchSubmissions = async (assignmentId) => {
         try {
-            const res = await axios.get(`/api/submissions/assignment/${assignmentId}`);
+            const res = await api.get(`/api/submissions/assignment/${assignmentId}`);
             setSubmissions(res.data);
         } catch (err) {
             console.error("Failed to fetch submissions", err);
@@ -139,7 +139,7 @@ const TeacherDashboard = () => {
         });
 
         try {
-            await axios.post('/api/assignments', formData, {
+            await api.post('/api/assignments', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setShowCreateAssignment(false);
@@ -160,7 +160,7 @@ const TeacherDashboard = () => {
     const handleCreateCourse = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/api/courses', newCourse);
+            const res = await api.post('/api/courses', newCourse);
             setCourses([...courses, res.data]);
             setSelectedCourse(res.data);
             setShowCreateCourse(false);
@@ -177,7 +177,7 @@ const TeacherDashboard = () => {
     const handleDeleteAssignment = async (id) => {
         if (window.confirm('Are you sure you want to delete this assignment?')) {
             try {
-                await axios.delete(`/api/assignments/${id}`);
+                await api.delete(`/api/assignments/${id}`);
                 // UI updates handled by WebSocket
             } catch (err) {
                 console.error("Failed to delete assignment", err);
@@ -194,7 +194,7 @@ const TeacherDashboard = () => {
 
     const handleGrade = async (submissionId, marks, feedback) => {
         try {
-            await axios.post(`/api/submissions/${submissionId}/grade`, null, {
+            await api.post(`/api/submissions/${submissionId}/grade`, null, {
                 params: { marks, feedback }
             });
             showToast('Submission graded', 'success');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { Upload, Clock, CheckCircle, AlertCircle, Award, Download, Paperclip } from 'lucide-react';
 import CourseMaterials from './Dashboard/CourseMaterials';
 
@@ -107,7 +107,7 @@ const AssignmentItem = ({ assignment, submission, onRefresh }) => {
         formData.append('file', file);
 
         try {
-            await axios.post('/api/submissions', formData, {
+            await api.post('/api/submissions', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             onRefresh();

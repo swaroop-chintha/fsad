@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../services/api';
 import { Calendar, Plus, X } from 'lucide-react';
 
 const UpcomingEvents = ({ courseId, isTeacher, eventsProp }) => {
@@ -19,7 +19,7 @@ const UpcomingEvents = ({ courseId, isTeacher, eventsProp }) => {
 
     const fetchEvents = async () => {
         try {
-            const res = await axios.get(`/api/events/course/${courseId}`);
+            const res = await api.get(`/api/events/course/${courseId}`);
             setEvents(res.data);
         } catch (error) {
             console.error("Error fetching events:", error);
@@ -32,7 +32,7 @@ const UpcomingEvents = ({ courseId, isTeacher, eventsProp }) => {
             let formattedDate = newEvent.eventDate;
             if (formattedDate.length === 16) formattedDate += ":00";
 
-            await axios.post('/api/events', null, {
+            await api.post('/api/events', null, {
                 params: {
                     courseId,
                     title: newEvent.title,

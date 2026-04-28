@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../services/api';
 import { Book, Upload, Trash2, Download } from 'lucide-react';
 
 const CourseMaterials = ({ courseId, isTeacher }) => {
@@ -14,7 +14,7 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
 
     const fetchMaterials = async () => {
         try {
-            const res = await axios.get(`/api/materials/course/${courseId}`);
+            const res = await api.get(`/api/materials/course/${courseId}`);
             setMaterials(res.data);
         } catch (error) {
             console.error("Failed to load materials");
@@ -32,7 +32,7 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
         formData.append('file', file);
 
         try {
-            await axios.post('/api/materials', formData, {
+            await api.post('/api/materials', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setFile(null);
@@ -48,7 +48,7 @@ const CourseMaterials = ({ courseId, isTeacher }) => {
     const handleDelete = async (id) => {
         if (!window.confirm("Delete this material?")) return;
         try {
-            await axios.delete(`/api/materials/${id}`);
+            await api.delete(`/api/materials/${id}`);
             fetchMaterials();
         } catch (error) {
             console.error("Failed to delete", error);
