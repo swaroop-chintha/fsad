@@ -81,7 +81,7 @@ const StudentDashboard = () => {
                     // Fetch Materials (Lessons)
                     let courseMaterials = [];
                     try {
-                        const materialRes = await api.get(`/api/course-materials/course/${course.id}`);
+                        const materialRes = await api.get(`/api/materials/course/${course.id}`);
                         courseMaterials = materialRes.data;
                     } catch (e) { console.error("Failed to fetch materials", e); }
 
