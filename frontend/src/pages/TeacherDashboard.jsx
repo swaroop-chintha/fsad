@@ -409,6 +409,7 @@ const TeacherDashboard = () => {
                                         </form>
                                     </div>
                                 </div>
+                            )}
                         </>
                     )}
 
